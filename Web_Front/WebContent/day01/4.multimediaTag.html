@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>멀티미디어 관련 태그</title>
+</head>
+<body>
+    <h1>이미지 태그</h1>
+    <img src="../images/salad.jpg" alt="샐러드">
+    <img src="../images/tangerines.jpg" alt="다수의 귤">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png" alt="VSCode">
+    <!-- controls 속성 필요함 -->
+    <video src="../medias/flight.mp4" width="400px" height="300px"></video>
+    <!-- controls재생, 일시 중지 및 볼륨과 같은 비디오 컨트롤을 추가 -->
+    <video src="../medias/flower.mp4" width="400px" height="300px" controls></video>
+    <!-- 안쓰면 사진처럼 보임 -->
+    <video src="../medias/flower.mp4" width="400px" height="300px"></video>
+    <video src="../medias/flower.mp4" width="400px" height="300px" muted autoplay></video>
+    <!-- 음소거 상태로 자동재생 -->
+    <!-- 음소거 속성 없이 자동재생은 불가! -->
+    <video src="../medias/flight.mp4" width="400px" height="300px" controls muted autoplay></video>
+    <video src="../medias/salad.mp4" width="400px" height="250px" controls></video>
+    <!-- 자동재생 -->
+    <audio src="../medias/spring.mp3" controls autoplay></audio>
+</body>
+</html>
