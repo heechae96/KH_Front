@@ -1,38 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연습문제2</title>
+    <style>
+        /* 태그명 {
+            속성
+        } */
+        h1 {
+            color: darkblue;
+            background-color: beige;
+        }
+
+        table {
+            border: 1px solid #ccc;
+        }
+
+        th {
+            border: 1px solid seagreen;
+            padding: 10px 20px;
+        }
+
+        th:last-child {
+            width: 200px;
+        }
+    </style>
 </head>
+
 <body>
     <h1>수습 국원 지원 양식</h1>
-    <table border="1">
+    <table>
         <tr>
-            <th rowspan="3" width="100">개인정보</th>    
-            <th width="100">이름</th>    
-            <th colspan="2" height="30" width="200"></th>    
+            <th rowspan="3">개인정보</th>
+            <th>이름</th>
+            <th colspan="2"></th>
             <!-- <td></td>     -->
         </tr>
         <tr>
             <!-- <td></td>     -->
-            <th>학과/학번</th>    
-            <th colspan="2" height="30" width="200"></th>    
+            <th>학과/학번</th>
+            <th colspan="2"></th>
             <!-- <td></td>     -->
         </tr>
         <tr>
             <!-- <td></td>     -->
-            <th>연락처</th>    
-            <td colspan="2" height="30" width="200"></td>    
+            <th>연락처</th>
+            <th colspan="2"></th>
             <!-- <td></td>     -->
         </tr>
         <tr>
-            <th>지원분야</th>    
-            <th colspan="3" height="30" width="200"></th>    
+            <th>지원분야</th>
+            <th colspan="3"></th>
             <!-- <td></td>     -->
             <!-- <td></td>     -->
         </tr>
     </table>
 </body>
+
 </html>
