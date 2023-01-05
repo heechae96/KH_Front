@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 part1</title>
+    <style>
+        /* 
+            선택자 (selector)
+            1. 태그 선택자
+            2. 아이디 선택자
+            3. 클래스 선택자
+            4. 기본 속성 선택자
+            5. 문자열 속성 선택자
+            6. 자손 선택자
+            7. 후손 선택자
+        */
+        /* 태그 선택자 */
+        p {
+            --color: red;
+            --background-color: yellow;
+        }
+
+        h1 {
+            background-color: antiquewhite;
+        }
+
+        /* 아이디 선택자 */
+        /* 아이디는 유일한 값 */
+        #taste {
+            background-color: aquamarine;
+        }
+
+        /* 클래스 선택자 */
+        /* 클래스는 공통으로 묶는 값 */
+        .redp {
+            background-color: skyblue;
+        }
+
+        /* 기본 속성 선택자 */
+        [name=user-id] {
+            background-color: cadetblue;
+        }
+
+        [type=text] {
+            background-color: brown;
+        }
+
+        /* 문자열 속성 테스트 */
+        /* 속성값이 특정값으로 시작되는 태그 선택 */
+        [name^=Test] {
+            --color: blue;
+        }
+
+        /* 속성값이 특정값으로 끝나는 태그 선택 */
+        [class$=c1] {
+            --background-color: coral;
+        }
+
+        /* 속성값이 class로 시작하고 -를 포함하는 대그 선택 */
+        [class|=class] {
+            --background-color: red;
+        }
+
+        /* 띄어쓰기로 구분되어 있는 값중 특정값을 포함하는 태그 선택 */
+        [name~=Test] {
+            --background-color: gray;
+        }
+
+        /* 속성값이 포함된 태그 선택 */
+        [class*=p] {
+            --background-color: greenyellow;
+        }
+
+        /* 자손 선택자 */
+        div>h2 {
+            --color: green;
+        }
+
+        div>ul>li {
+            --background-color: red;
+        }
+
+        /* 후손 선택자 */
+        div li {
+            background-color: gold;
+        }
+
+        /* 후손이면서 자손이라 가능 */
+        div h2 {
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>레드향</h1>
+    <p class="redp" id="goodTaste">껍질에 붉은 빛이 돌아 레드향이라 불린다</p>
+    <p class="redp">레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다.</p>
+    <p class="redp">비타민 C와 비타민 P가 풍부해 혈액순환, 감기 예방 등에 좋은 것으로 알려져있다</p>
+    <p id="taste">정말 맛있는 과일입니다</p>
+    <p>이것은 영향을 받지 않아요</p>
+    <h1>기본 속성 선택자</h1>
+    <input type="text" name="user-id">
+    <input type="text" name="user-pw">
+    <h1>문자열 속성 선택자</h1>
+    <p name="Test 1" id="i1" class="class-c1">Test1 글자입니다.</p>
+    <p name="Test 2" id="i2" class="c1">Test2 글자입니다.</p>
+    <p name="Test 3" id="i3" class="c1">Test3 글자입니다.</p>
+    <p name="Test 4" id="i4" class="c2">Test4 글자입니다.</p>
+    <p name="Test 5" id="i5" class="c2">Test5 글자입니다.</p>
+    <p name="Test 6" id="i6" class="class-c2">Test6 글자입니다.</p>
+    <p name="Test 7" id="i7" class="p-class c1">Test1 글자입니다.</p>
+    <p name="Test 8" id="id8" class="class-p c3">Test6 글자입니다.</p>
+
+    <hr>
+
+    <h1>자손/후손 선택자</h1>
+    <div>
+        <h2>div의 자손입니다</h2>
+        <ul>
+            <li>div의 후손1입니다</li>
+            <li>후손2입니다</li>
+            <li>ul의 자손입니다</li>
+        </ul>
+    </div>
+</body>
+
+</html>

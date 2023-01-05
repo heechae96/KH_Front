@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            8. 동위 선택자
+            9. 일반 구조 선택자
+            10. 형태 구조 선택자
+            11. 반응 선택자
+            12. 상태 선택자
+            13. 속성 선택자
+            14. 부정 선택자
+        */
+        /* 
+            동위 선택자
+            1. 기준은 미포함 바로 뒤 여러개 선택 (~)
+            2. 기준은 미포함 바로 뒤 1개 선택 (+)
+        */
+        h5~p{
+            background-color: rosybrown;
+        }
+        h5+p{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<h1>동위선택자</h1>
+<div>
+    <h4>자손1</h4>
+    <h5>자손2</h5>
+    <p>자손3</p>
+    <p>자손4</p>
+    <p>자손5</p>
+</div>
+
+</html>

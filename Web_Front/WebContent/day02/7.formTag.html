@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>폼 관련 태그</title>
+</head>
+<body>
+    <h1>첫번째 폼</h1>
+    <!-- 
+        폼 태그는 데이터를 전송할때 사용됨
+        태그 내에 어떤곳으로 보낼지, 어떤 방식으로 보낼지 적어주여하 함 
+    -->
+    <!-- <form action="어디로 보낼지" method="어떠한 방식으로 보낼지"> -->
+    <form action="/member/longin.do" method="get">
+        ID : <input type="text"><br>
+        PW : <input type="password"><br>
+        <input type="submit" value="로그인">
+        <!-- 입력값들이 모두 날라감 -->
+        <input type="reset" value="취소">
+    </form>
+    <h1>두번째 폼</h1>
+    <!-- 
+        method 방식
+        1. get : url에 입력한 값들이 보임
+            -> default
+            -> 보이게 보냄
+        2. post : url에 입력한 값들이 안보임
+            -> 안보이게 보냄
+     -->
+    <form action="/member/login.do" method="post">
+        <fieldset>
+            <legend>로그인 정보</legend>
+            ID : <input type="text" name="userId"><br>
+            PW : <input type="password" name="userPw"><br>
+            <input type="submit" value="로그인">
+            <input type="reset" value="취소">
+        </fieldset>
+    </form>
+    <h1>세번째 폼</h1>
+    <form action="">
+        text : <input type="text"><br>
+        password : <input type="password"><br>
+        submit : <input type="submit"><br>
+        reset : <input type="reset"><br>
+        <hr>
+        <!-- 여러개 선택할때 -->
+        checkbox : <input type="checkbox">짜장면
+                    <input type="checkbox">짬뽕
+                    <input type="checkbox">볶음밥<br>
+        <!-- 하나만 선택할때 -->
+        radio : <input type="radio" name="gender">남
+                <input type="radio" name="gender">여<br>
+        button : <input type="button" value="버튼"><br>
+        <hr>
+        file : <input type="file"><br>
+        hidden : <input type="hidden"><br>
+        date : <input type="date"><br>
+        datetime : <input type="time"><br>
+        number : <input type="number"><br>
+        search : <input type="search"><br>
+        email : <input type="email"><br>
+        range : <input type="range"><br>
+        week : <input type="week"><br>
+        textarea : <textarea name="" id="" cols="30" rows="10"></textarea>
+    </form>
+    <h1>네번째 폼(checkbox, radio)</h1>
+    <form action="">
+        <fieldset>
+            <legend>좋아하는 음식(다중선택 가능)</legend>
+            <label>
+                <input type="checkbox">피자
+            </label>
+            <input type="checkbox" id="nene">
+            <label for="nene">치킨</label>
+            <label>
+                <input type="checkbox">떡볶이
+            </label>
+            <input type="checkbox" id="oisy">
+            <label for="oisy">튀김</label> <br>
+            <input type="submit" value="전송">
+        </fieldset>
+    </form>
+    <form action="">
+        <fieldset>
+            <legend>취미생활</legend>
+            <input type="radio" name="hobby"> 코딩
+            <input type="radio" name="hobby"> 넷플릭스
+            <input type="radio" name="hobby"> 수영
+            <input type="radio" name="hobby"> 골프<br>
+            <input type="submit" value="전송">
+        </fieldset>
+    </form>
+    <h1>다섯번째 폼(placeholder, required)</h1>
+    <form action="">
+        <fieldset>
+            ID : <input type="text" placeholder="아이디를 입력하세요"><br>
+            PW : <input type="password" placeholder="비밀번호를 입력하세요" required><br>
+            <input type="submit" value="전송">
+        </fieldset>
+    </form>
+    <h1>여섯번째 폼(select)</h1>
+    <form action="/member/job.do" method="get">
+        <fieldset>
+            <legend>직업을 선택하세요</legend>
+            <select name="job" id="">
+                <option value="doctor">의사</option>
+                <option value="judge">판사</option>
+                <option value="gladiator">검사</option>
+                <option value="educator">강사</option>
+            </select>
+            <br>
+            <input type="submit" value="전송">
+        </fieldset>
+    </form>
+    <form action="">
+        <fieldset>
+            <legend>가장 어려웠던 부분</legend>
+            <select name="" id="">
+                <optgroup label="자바">
+                    <option value="">상속</option>
+                    <option value="">캡슐화</option>
+                    <option value="">다형성</option>
+                </optgroup>
+                <optgroup label="Oracle">
+                    <option value="">제약조건</option>
+                    <option value="">PL/SQL</option>
+                    <option value="">SQL</option>
+                </optgroup>
+            </select>
+        </fieldset>
+    </form>
+    <form action="">
+        <fieldset>
+            <legend>좋아하는 브라우져를 선택하세요</legend>
+            <input type="text" list="browsers">
+            <datalist id="browsers">
+                <option value="Edge"></option>
+                <option value="Chrome"></option>
+                <option value="Whale"></option>
+                <option value="Safari"></option>
+                <option value="Brave"></option>
+            </datalist>
+        </fieldset>
+    </form>
+</body>
+</html>
