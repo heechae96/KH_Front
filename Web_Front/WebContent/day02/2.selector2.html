@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>선택자 part2</title>
     <style>
         /*
             8. 동위 선택자
@@ -21,11 +21,112 @@
             1. 기준은 미포함 바로 뒤 여러개 선택 (~)
             2. 기준은 미포함 바로 뒤 1개 선택 (+)
         */
-        h5~p{
+        h5~p {
             background-color: rosybrown;
         }
-        h5+p{
+
+        h5+p {
             background-color: red;
+        }
+
+        /*
+            일반 구조 선택자(구조 의사 클래스)
+            1. :first-child
+            2. :last-child
+            3. :nth-child()
+            4. :nth-last-child()
+        */
+        #div-test1 p:first-child {
+            color: blue;
+            --background-color: red;
+        }
+
+        #div-test1 p:last-child {
+            color: red;
+        }
+
+        /* 2번째만 */
+        #div-test1 p:nth-child(2) {
+            --color: yellowgreen;
+        }
+
+        /* 짝수번째 */
+        #div-test1 p:nth-child(2n) {
+            color: yellowgreen;
+        }
+
+        /*
+            형태 구조 선택자
+            1. :first - of - type
+            2. :last - of - type
+            3. :nth - of - type()
+            4. :nth - last - of - type()
+        */
+        /* 섞여있는 경우 일반 구조 선택자로 불가 */
+        #div-test4 p:last-of-type {
+            color: green;
+        }
+
+        #div-test4 h4:first-of-type {
+            background-color: red;
+        }
+
+        /* 클릭했을때 */
+        #div-test4:active {
+            background-color: blue;
+        }
+
+        /* 마우스 위로 올렸을때 */
+        #div-test4:hover {
+            background-color: tomato;
+        }
+
+        /*
+            상태 선택자(input태그와 관련)
+            1. :checked - 체크 상태의 input태그를 선택
+            2. :focus - 커서가 있는 input태그를 선택
+        */
+        [type=text]:focus {
+            background-color: aliceblue;
+        }
+
+        [type=checkbox]:checked {
+            width: 50px;
+            height: 50px;
+        }
+
+        /*
+            속성 선택자
+            1. :enabled - option태그에서 선택 가능한 상태
+            2. :disabled - option태그에서 선택 불가능한 상태
+            맥은 적용이 안됨!!
+        */
+        option:disabled {
+            background-color: red;
+        }
+
+        option:enabled {
+            background-color: green;
+        }
+
+        /*
+            링크 선택자
+            1. :link -
+            2. :visited -
+        */
+        a:link {
+            color: brown;
+        }
+
+        a:visited {
+            color: green;
+        }
+
+        /*
+            부정 선택자
+        */
+        #div-test4 p:not(:nth-of-type(2n)) {
+            background-color: yellow;
         }
     </style>
 </head>
@@ -40,5 +141,49 @@
     <p>자손4</p>
     <p>자손5</p>
 </div>
+<h1>일반 구조 선택자</h1>
+<div>
+    <div id="div-test1">
+        <p>테스트1-1 입니다.</p>
+        <p>테스트1-2 입니다.</p>
+        <p>테스트1-3 입니다.</p>
+        <p>테스트1-4 입니다.</p>
+        <p>테스트1-5 입니다.</p>
+    </div>
+</div>
+<h1>형태 구조 선택자</h1>
+<div id="div-test4">
+    <p>테스트 1p입니다.</p>
+    <h4>테스트 h4의 1번째</h4>
+    <p>테스트 2p입니다.</p>
+    <h4>테스트 h4의 2번째</h4>
+    <p>테스트 3p입니다.</p>
+    <h4>테스트 h4의 3번째</h4>
+    <p>테스트 4p입니다.</p>
+    <h4>테스트 h4의 4번째</h4>
+</div>
+<h1>상태,속성,링크 선택자</h1>
+<form action="">
+    <fieldset>
+        <legend>회원 정보 입력</legend>
+        이름 : <input type="text"> <br>
+        아이디 : <input type="text"> <br>
+        이메일 : <input type="text"> <br>
+        취미 : <input type="checkbox">독서
+        <input type="checkbox">코딩
+        <input type="checkbox">수영 <small>(상태선택자)</small><br>
+        <select>
+            <option value="" disabled>자바</option>
+            <option value="">오라클</option>
+            <option value="">JDBC</option>
+            <option value="">HTML</option>
+            <option value="">CSS</option>
+        </select> <small>(속성 선택자)</small> <br>
+        <a href="https://www.iei.or.kr">KH정보교육원</a> <small>(링크선택자)</small> <br>
+        <input type="submit" value="제출하기">
+        <input type="reset" value="취소하기">
+    </fieldset>
+</form>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </html>

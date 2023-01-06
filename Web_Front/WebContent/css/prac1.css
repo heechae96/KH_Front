@@ -1,0 +1,20 @@
+.container{
+    width: 500px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    /*      위/아래  좌/우 */
+    margin: 20px auto;
+}
+ul{
+    /* li의 블릿 지우기 */
+    list-style-type: none;
+}
+li{
+    /* 행의 높이를 설정 */
+    line-height: 2.0;
+}
+.subject{
+    color: brown;
+    font-weight: 700;
+    font-size: larger;
+}

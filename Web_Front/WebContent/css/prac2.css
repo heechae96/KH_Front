@@ -1,0 +1,34 @@
+.container{
+    width: 550px;
+    height: 800px;
+    /* border: 1px solid gainsboro; */
+}
+
+#apple{
+    width: 550px;
+}
+
+#box1{
+    color: white;
+    background-color: black;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+h2{
+    color: red;
+}
+
+span{
+    color: blue;
+}
+
+.box2{
+    border: 1px solid gainsboro;
+    text-align: center;
+}
+
+h2+p{
+    margin-bottom: -20px;
+}
+
