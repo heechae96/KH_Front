@@ -1,0 +1,49 @@
+ul{
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+#container{
+    width: 500px;
+    margin: auto;
+}
+
+p{
+    font-weight: bolder;
+}
+
+fieldset legend{
+    font-weight: bold;
+}
+
+input[type=number]{
+    width: 25px;
+}
+
+li{
+    margin: 15px;
+}
+
+input[type=text], input[type=email], input[type=tel]{
+    width: 300px;
+}
+
+label{
+    width: 80px;
+    text-align: left;
+    float: left;
+}
+
+input[type=submit], input[type=reset]{
+    width: 150px;
+    height: 40px;
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #ccc;
+    text-align: center;
+}
+
+#button-area{
+    text-align: center;
+    margin-top: 20px;
+}

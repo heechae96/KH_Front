@@ -1,0 +1,29 @@
+#header{
+    width: 100%;    
+    height: 100px;
+    background-color: cornflowerblue;
+}
+
+#main{
+    height: 500px;
+    background-color: seagreen;
+}
+    #main-layer1{
+        width: 20%;
+        /* 부모꺼 그래도 상속 */
+        height: inherit;
+        background-color: blueviolet;
+        float: left;
+    }
+
+    #main-layer2{
+        width: 80%;
+        height: inherit;
+        background-color: azure;
+        float: left;
+    }
+
+#footer{
+    height: 100px;
+    background-color: bisque;
+}

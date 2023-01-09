@@ -1,0 +1,23 @@
+#container{
+    width: 480px;
+}
+
+ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#shipping li label{
+    width: 80px;
+    text-align: left;
+    /* 80px를 유지하게 해줌 */
+    float: left;
+}
+
+li{
+    margin: 10px;
+}
+
+input[type=text], input[type=email], input[type=tel]{
+    width: 300px;
+}

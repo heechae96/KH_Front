@@ -1,0 +1,25 @@
+#container {
+    border: 1px solid black;
+    height: 550px;
+    width: 550px;
+    margin: auto;
+    /* 상하 / 좌우 */
+    padding: 20px 40px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+li{
+    margin: 10px 0px;
+}
+
+label{
+    width: 80px;
+    text-align: left;
+    float: left;
+}
+
+
