@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h-tag">자바스크립트가 어려운게 아니라 DOM이 어려운겁니다!</h1>
+    <hr>
+    ID : <input type="text" id="user-id">
+    PW : <input type="password" id="user-pw">
+    <input type="submit" value="제출">
+    <hr>
+    <script>
+        var str = document.getElementById("h-tag").innerHTML;
+        console.log(str);   // 자바스크립트가 어려운게 아니라 DOM이 어려운겁니다!
+
+        var userId = document.getElementById("user-id").value;
+        if(userId != ""){
+            console.log("비어있지 않습니다");
+        }else{
+            console.log("비어있습니다");
+        }
+    </script>
+</body>
+</html>
