@@ -1,0 +1,93 @@
+#container{
+    width: 900px;
+    height: 600px;
+    border: 1px dotted burlywood;
+}
+
+header{
+    width: 100%;
+    height: 12%;
+    background-color: rgb(17, 68, 112);
+}
+    header p{
+        float: left;
+        position: relative;
+        left: 20px;
+        top: -10px;
+        font-size: xx-large;
+        color: white;
+    }
+
+    header nav ul li{
+        list-style-type: none;
+        float: left;
+        color: white;
+        padding-left: 100px;
+        padding-top: 40px;
+    }
+
+main{
+    width: 100%;
+    height: 78%;
+}
+    .part{
+        width: 100%;
+        height: 50%;
+        position: relative;
+        float: left;
+        top: -20px;
+        margin-bottom: 10px;
+    }
+        .title{
+            height: 20%;
+            width: 100%;
+            position: relative;
+            left: 35px;
+            top: 10px;
+        }
+        content{
+            height: 80%;
+            width: 100%;
+            float: left;
+        }
+        .img{
+            width: 40%;
+            float: left;
+        }
+        .contentBox{
+            position: relative;
+            top: -20px;
+            float: left;
+            height: 100%;
+            width: 60%;
+        }
+        h4{
+            margin-bottom: 0px;
+        }
+        h4+p{
+            margin-top: 10px;
+        }
+        img{
+            position: relative;
+            border-radius: 10%;
+            width: 300px;
+            height: 170px;
+            left: 30px;
+        }
+
+footer{
+    width: 100%;
+    height: 10%;
+    position: relative;
+    top: 40px;
+    border-top: 2px solid rgb(135, 134, 134);
+}
+    footer nav ul li{
+        list-style-type: none;
+        padding-left: 40px;
+        color: rgb(135, 134, 134);
+        float: left;
+        position: relative;
+        left: -50px;
+        top: -20px;
+    }
