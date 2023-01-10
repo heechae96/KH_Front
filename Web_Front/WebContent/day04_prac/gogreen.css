@@ -1,0 +1,164 @@
+#container{
+    width: 900px;
+    margin: auto;
+    border: 1px dotted black;
+}
+
+#header{
+    width: 100%;
+    height: 100px;
+}
+    #header-layer1{
+        height: 100%;
+        float: left;
+        margin-left: 40px;
+        margin-right: 60px;
+    }
+    #header-layer2{
+        height: 100%;
+        float: left;
+    }
+
+#nav{
+    height: 30px;
+    background-color: rgb(54, 162, 54);
+    margin-bottom: 10px;
+}
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+    ul li{
+        list-style-type: none;
+        float: left;
+        width: 25%;
+        line-height: 30px;
+        text-align: center;
+    }
+    li a:link, li a:visited {
+        color: white;
+        text-decoration: none;
+    }
+
+#main{
+    height: 500px;
+}
+    #main-layer1{
+        /* margin-top: 10px; */
+        width: 16%;
+        height: 100%;
+        background-image: url(../images/image/left_img.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        float: left;
+    }
+    #main-layer2{
+        width: 56%;
+        height: 100%;
+        float: left;
+        /* margin-top: 10px; */
+    }
+        p{
+            margin: 0;
+            height: 2%;
+        }
+        #img-top{
+            width: 100%;
+            height: 48%;
+        }
+            #top-left{
+                height: 100%;
+                width: 50%;
+                float: left;
+                text-align: center;
+            }
+                #top-left img{
+                    width: 90%;
+                    height: 90%;
+                }
+            #top-right{
+                height: 100%;
+                width: 50%;
+                float: left;
+                text-align: center;
+            }
+                #top-right img{
+                    width: 90%;
+                    height: 90%;
+                }
+        #img-bottom{
+            width: 100%;
+            height: 48%;
+        }
+            #bottom-left{
+                height: 100%;
+                width: 50%;
+                float: left;
+                text-align: center;
+            }
+                #bottom-left img{
+                    width: 90%;
+                    height: 90%;
+                }
+            #bottom-right{
+                height: 100%;
+                width: 50%;
+                float: left;
+                text-align: center;
+            }
+                #bottom-right img{
+                    width: 90%;
+                    height: 90%;
+                }
+    #main-layer3{
+        /* margin-top: 10px; */
+        width: 28%;
+        height: 100%;
+        float: left;
+    }
+        #aside-top{
+            width: 100%;
+            height: 20%;
+            float: left;
+        }
+            td a:link, td a:visited {
+                text-decoration: none;
+            }
+            input{
+                height: 20px;
+                width: 160px;
+            }
+            button{
+                margin-left: 10px;
+                width: 60px;
+                height: 50px;
+            }
+            tr td a{
+                text-align: center;
+                margin-left: 40px;
+            }
+        #aside-mid{
+            width: 100%;
+            height: 50%;
+            background-image: url(../images/image/right_img.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            float: left;
+        }
+        #aside-bottom{
+            width: 100%;
+            height: 30%;
+            background-image: url(../images/image/me_chat.jpg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            float: left;
+        }
+
+#footer{
+    height: 80px;
+    width: 100%;
+}
+    #footer img{
+        height: 100%;
+        width: 100%;
+    }
