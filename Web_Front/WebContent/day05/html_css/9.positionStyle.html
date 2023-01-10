@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배치 관련 스타일</title>
+    <style>
+        /* 절대위치와 상대위치 */
+        .positioning {
+            border: 1px solid black;
+        }
+
+        .outer {
+            /* 부모로 인정 no */
+            /* position: static; */
+            /* 부모로 인정 yes */
+            position: relative;
+        }
+
+        .first {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            /* off set이 적용이 안된다 */
+            /* position: static; */
+            /* normal flow를 따름 */
+            position: relative;
+            /* left: 0px; */
+            /* top: 0px; */
+        }
+
+        .second {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            /* normal flow를 따르지 않음 */
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+
+        .third {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* normal flow를 따르지 않음 */
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        /* 고정위치 */
+        .fixed-area {
+            width: 100px;
+            height: 100px;
+            background-color: paleturquoise;
+            position: fixed;
+            left: 500px;
+        }
+
+        /* z-index */
+        .z-test {
+            width: 150px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .wrap {
+            /* position: static; */
+            position: relative;
+        }
+
+        .z-test1 {
+            background-color: beige;
+            /* position: static; */
+            position: absolute;
+            z-index: 1000;
+            top: 100px;
+            left: 100px;
+        }
+
+        .z-test2 {
+            background-color: bisque;
+            /* position: static; */
+            position: absolute;
+            z-index: 200;
+            top: 50px;
+            left: 50px;
+        }
+
+        .z-test3 {
+            background-color: darksalmon;
+            /* position: static; */
+            position: absolute;
+            z-index: 10;
+        }
+
+        /* float 속성 */
+        .float-test {
+            width: 100px;
+            height: 50px;
+            border: 1px solid black;
+            float: left;
+        }
+
+        /* 화면 배치 변경 방법 */
+        .block {
+            width: 110px;
+            height: 50px;
+            border: 1px solid black;
+            display: inline;
+        }
+
+        .block2 {
+            width: 110px;
+            height: 50px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+
+        .block3 {
+            width: 110px;
+            height: 50px;
+            border: 1px solid black;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>배치 관련 스타일</h1>
+    <h3>절대위치와 상대위치</h3>
+    <div class="outer">
+        <div class="positioning first"></div>
+        <div class="positioning second"></div>
+        <div class="positioning third"></div>
+    </div>
+
+    <pre>CSS Position의 속성값
+1. static, 아무것도 지정하지 않은 경우 default값으로 사용됨.
+CSS의 Normal-flow에 따라 배치, offset이 적용되지 않는다.
+2. relatvie, 자신이 원래 있어야 할 위치의 offset에 따라 배치됨.
+ * offset은 top,left,right,bottom 속성값이며 offset을 지정하지 않으면 static과
+동일한 기능을 수행함.
+3. absolute, absolute로 정의된 요소는 CSS의 Normal-flow 흐름에서 배제된다.
+단, 부모 요소가 static인 경우에는 조상요소의 position속성이 static이 아닐때까지 거슬러
+올라가 배치된다.
+4. fixed, 브라우저의 창에 상대적인 위치(offset)에 보이도록 한다. 즉, 화면 스크롤과
+상관없이 항상 화면의 정해진 위치에 배치됨.
+    </pre>
+
+    <div class="positioning fixed-area">
+        <h3>고정위치</h3>
+    </div>
+    <h3>z-index</h3>
+    <p>페이지 안의 요소들을 순서대로 위로 쌓는 속성</p>
+    <div class="wrap">
+        <div class="z-test z-test1">요소1</div>
+        <div class="z-test z-test2">요소2</div>
+        <div class="z-test z-test3">요소3</div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <h3>float 속성</h3>
+    <p>페이지 내의 요소의 위치를 왼쪽이나 오른쪽으로 지정하는 속성</p>
+    <div class="float1">
+        <div class="float-test float-test1">111</div>
+        <div class="float-test float-test2">222</div>
+        <div class="float-test float-test3">333</div>
+        <div class="float-test float-test4">444</div>
+        <div class="float-test float-test5">555</div>
+    </div>
+    
+    <br><br><br>
+
+    <h3>화면 배치 변경 방법</h3>
+    <p>박스(블록) 요소와 인라인 요소의 속성을 변경하여 배치방식을 변경할 수 있음</p>
+    <pre><b>>> display:inline 테스트</b></pre>
+    <pre>인라인 요소로 변경되면서 width와 height 속성이 무시된다.</pre>
+    <div class="block block-test1 area1">첫번째 영역</div>
+    <div class="block block-test2 area2">두번째 영역</div>
+    <div class="block block-test3 area3">세번째 영역</div>
+    <div class="block block-test4 area4">네번째 영역</div>
+    <div class="block block-test5 area5">다섯번째 영역</div>
+    <pre><b>>> display:inline-block 테스트</b></pre>
+    <pre>영역은 인라인 요소로 변경되지만 내용은 블록요소로 
+    지정되어 width와 height속성을 설정할 수 있다.</pre>
+    <div class="block2 block-test1 area1">첫번째 영역</div>
+    <div class="block2 block-test2 area2">두번째 영역</div>
+    <div class="block2 block-test3 area3">세번째 영역</div>
+    <div class="block2 block-test4 area4">네번째 영역</div>
+    <div class="block2 block-test5 area5">다섯번째 영역</div>
+
+    <pre><b>>> display:block 테스트</b></pre>
+    <pre>인라인 요소를 블록요소로 변경하면 width와 height 속성을
+    설정할 수 있고 블록 요소로 변경할 수 있다.
+    </pre>
+    <span class="block3 area1">첫번째 영역</span>
+    <span class="block3 area2">두번째 영역</span>
+    <span class="block3 area3">세번째 영역</span>
+    <span class="block3 area4">네번째 영역</span>
+    <span class="block3 area5">다섯번째 영역</span>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>
