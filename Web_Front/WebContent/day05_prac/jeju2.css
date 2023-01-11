@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    /* content-box가 디폴트*/
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link{
+    color: #fff;
+}
+
+ul{
+    list-style-type: none;
+}
+
+#container{
+    /* 높이는 왜 언급이 없을까? */
+    /* 높이를 잡으면 계속 내부 속성의 높이에 맞게 수정해야하는 문제 발생 */
+    margin: 0 auto;
+    width: 1200px;
+    background-color: #fff;
+    border: 1px dotted blueviolet;
+}
+
+header{
+    width: 100%;
+    height: 100px;
+    background-color: #045;
+}
+
+#logo{
+    float: left;
+    width: 250px;
+    height: 100px;
+    line-height: 100px;
+    padding-left: 20px;
+}
+
+#logo h1{
+    font-family: 'Merienda', cursive;
+    font-weight: 700;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 0 -1px 0 #222;
+}
+
+nav{
+    float: right;
+    width: 900px;
+    height: 100px;
+    padding-top: 40px;
+}
+    #topMenu{
+        height: 60px;
+    }
+    #topMenu li{
+        /* 인라인 속성으로 만들기 */
+        float: left;
+        padding-top: 25px;
+    }
+    #topMenu > li > a{
+        /* 블록을 사용한 이유는...? */
+        /* display: block; */
+        font-size: 1.1em;
+        color: #fff;
+        font-weight: 600;
+        padding: 20px 60px;
+    }
+    #topMenu > li > a:hover{
+        color: #1fa8f8;
+        text-shadow: 0 -2px #222;
+    }
+
+#contents{
+    width: 1000px;
+    margin: 50px auto;
+}
+    main > section{
+        margin-top: 60px;
+    }
+    main h2{
+        font-size: 1.5em;
+        line-height: 2.5;
+    }
+    main div{
+        margin-top: 20px;
+    }
+    main h3{
+        font-size: 1.2em;
+        line-height: 2.2;
+    }
+    .detail p{
+        line-height: 2.0;
+        color: #222;
+    }
+    .detail > img{
+        float: left;
+        border-radius: 20px;
+        margin-right: 50px;
+    }
+    .schedule h3{
+        font-size: 1.2em;
+    }
+    .schedule ul li{
+        line-height: 2;
+    }
+    h2+.detail{
+        margin-top: 0;
+    }
+
+footer{
+    width: 1200px;
+    height: 60px;
+    border-top: 1px solid #ccc;
+}
+    #bottomMenu{
+        width: 100%;
+        height: 20px;
+        margin-left: 60px;
+        margin-top: 20px;
+    }
+    #bottomMenu ul li{
+        float: left;
+        padding: 5px 20px;
+        border-right: 1px solid #ddd;
+    }
+    #bottomMenu ul li:last-child{
+        /* 마지막 li의 border제거 */
+        border: none;
+    }
+    #bottomMenu ul li a, #bottomMenu ul li a:visited{
+        font-size: 15px;
+        color: #666;
+    }
