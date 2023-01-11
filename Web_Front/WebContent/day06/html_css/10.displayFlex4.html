@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display : flex part4</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 150px;
+            background-color: #eee;
+            border: 1px solid #222;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .box {
+            background-color: #222;
+            margin: 5px;
+            padding: 5px 45px;
+        }
+
+        p {
+            color: #fff;
+            text-align: center;
+        }
+
+        #box1{
+            align-self: flex-start;
+        }
+        #box2{
+            align-self: flex-end;
+        }
+        #box3{
+            align-self: stretch;
+        }
+        #box4{
+            align-self: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="opt1">
+        <div class="box" id="box1">
+            <p>1</p>
+        </div>
+        <div class="box" id="box2">
+            <p>2</p>
+        </div>
+        <div class="box" id="box3">
+            <p>3</p>
+        </div>
+        <div class="box" id="box4">
+            <p>4</p>
+        </div>
+    </div>
+</body>
+
+</html>

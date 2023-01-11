@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #topMenu1 {
+            height: 60px;
+        }
+
+        #topMenu1 li {
+            /* 인라인 속성으로 만들기 */
+            float: left;
+            padding-top: 25px;
+            list-style-type: none;
+            border: 1px solid black;
+        }
+
+        #topMenu1>li>a {
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 20px 60px;
+        }
+
+
+        #topMenu2 {
+            height: 60px;
+        }
+
+        #topMenu2 li {
+            /* 인라인 속성으로 만들기 */
+            float: left;
+            padding-top: 25px;
+            list-style-type: none;
+            border: 1px solid black;
+        }
+
+        #topMenu2>li>a {
+            display: block;
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 20px 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>블럭설정 xxx</h1>
+    <nav>
+        <ul id="topMenu1">
+            <li><a href="#">단체 여행</a></li>
+            <li><a href="#">맞춤 여행</a></li>
+            <li><a href="#">갤러리</a></li>
+            <li><a href="#">문의하기</a></li>
+        </ul>
+    </nav>
+    <br><br><br>
+    <hr>
+    <br><br><br>
+    <h1>블럭설정 ooo</h1>
+    <nav>
+        <ul id="topMenu2">
+            <li><a href="#">단체 여행</a></li>
+            <li><a href="#">맞춤 여행</a></li>
+            <li><a href="#">갤러리</a></li>
+            <li><a href="#">문의하기</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

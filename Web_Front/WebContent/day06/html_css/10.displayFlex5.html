@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display : flex part5</title>
+    <style>
+        .container {
+            display: flex;
+            background-color: #eee;
+            border: 1px solid #222;
+            margin-bottom: 20px;
+            --flex-direction: row;
+            --justify-content: flex-start;
+            --align-items: stretch;
+        }
+
+        .box {
+            background-color: #222;
+            margin: 5px;
+            padding: 5px 45px;
+        }
+
+        p {
+            color: #fff;
+            text-align: center;
+        }
+
+        #opt1 {
+            /* 공간이 부족하면 줄바꿈을 알아서 해준다 */
+            flex-flow: wrap;
+        }
+
+        #opt2 {
+            /* 디폴트 */
+            /* 공간이 부족하면 잘림 */
+            flex-flow: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>화면을 줄이고 늘리고 해보기</h1>
+    <div class="container" id="opt1">
+        <div class="box">
+            <p>1</p>
+        </div>
+        <div class="box">
+            <p>2</p>
+        </div>
+        <div class="box">
+            <p>3</p>
+        </div>
+        <div class="box">
+            <p>4</p>
+        </div>
+        <div class="box">
+            <p>5</p>
+        </div>
+        <div class="box">
+            <p>6</p>
+        </div>
+    </div>
+    <div class="container" id="opt2">
+        <div class="box">
+            <p>1</p>
+        </div>
+        <div class="box">
+            <p>2</p>
+        </div>
+        <div class="box">
+            <p>3</p>
+        </div>
+        <div class="box">
+            <p>4</p>
+        </div>
+        <div class="box">
+            <p>5</p>
+        </div>
+        <div class="box">
+            <p>6</p>
+        </div>
+    </div>
+</body>
+
+</html>
