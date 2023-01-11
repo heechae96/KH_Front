@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Javascript를 이용한 HTML태그 접근</h2>
+    <p>자바스크립트를 이용하여 HTML태그를 동적으로 처리하기 위해서는 DOM객체의
+        메소드를 호출하여 접근해야함.
+    </p>
+    <h3>메소드</h3>
+    <p>
+        1. getElementById("아이디명")
+        : 태그의 id 속성값을 이용해서 태그 요소 객체정보를 가져옴(1개) <br>
+        2. getElementsByName("이름명") : 태그의 name 속성값을 이용해서 태그 요소의 객체 정보를
+        배열에 담아 가져옴(여러개 존재할 수 있음.) <br>
+        3. getElementsByTagName("태그명") : 태그명을 이용해서 태그들의 객체 정보를
+        배열에 담아 가져옴(여러개 존재할 수 있음.) <br>
+    </p>
+    <div>
+        <p id="p11" name="pp">안녕하세요</p>
+        <p id="p22" name="pp">돔객체</p>
+        <p id="p33" name="pp">자바스크립트</p>
+    </div>
+    <script>
+        var pTag1 = document.getElementById("p11");
+        console.log(pTag1);
+        console.log("pTag1.innerHTML: " + pTag1.innerHTML);
+        pTag1.innerHTML = "Hello~~~";
+        console.log("pTag1.innerHTML: " + pTag1.innerHTML);
+
+        var pTag2 = document.getElementById("p22");
+        console.log(pTag2);
+        console.log("pTag2.innerHTML: " + pTag2.innerHTML);
+        pTag2.innerHTML = "DOM OBJECT";
+        console.log("pTag2.innerHTML: " + pTag2.innerHTML);
+
+        var pTag3 = document.getElementById("p33");
+        console.log(pTag3);
+        console.log("pTag3.innerHTML: " + pTag3.innerHTML);
+        pTag3.innerHTML = "JavaScript";
+        console.log("pTag3.innerHTML: " + pTag3.innerHTML);
+
+        var pTags = document.getElementsByName("pp");
+        console.log(pTags);
+        console.log(pTags[0]);
+        console.log(pTags[1]);
+        console.log(pTags[2]);
+
+        var pTagNames = document.getElementsByTagName("p");
+        console.log(pTagNames);
+
+        var pTagSelect = document.querySelector("#p33");
+        console.log(pTagSelect);
+    </script>
+</body>
+
+</html>

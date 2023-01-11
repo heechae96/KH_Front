@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기초 실습1</title>
+</head>
+
+<body>
+    문제1. div 안에 있는 내용을 "성공" 으로 바꾸어 보세요 <br>
+    (JavaScript로만 바꾸는걸 잊지마세요!)
+    <div id="div1">
+        저를 바꾸어보세요^^
+    </div>
+    <br><br>
+
+    문제2. "바꿀수 있을까? 라는 문구를 "성공" 으로 바꾸어 보세요 <br>
+    <div id="div2">
+        <input type="text" id="test" value="바꿀수 있을까?" />
+    </div>
+    <br><br>
+    문제3. 해당 값을 읽어서 개발자도구 : 콘솔에 출력해보세요
+    <div id="div3">
+        <p id="p1">
+            <span id="span">저를 읽어서 콘솔에 출력해보세요</span>
+        </p>
+    </div>
+    <br><br>
+
+    문제4. 해당 태그의 타입을 변경하여 볼 수 있도록 해보세요(버튼이 없는 문제입니다.)
+    <div id="div4">
+        <input type="hidden" id="test2" value="성공">
+    </div>
+
+    <script>
+        // 문제1
+        // var q1 = document.querySelector("#div1");
+        // q1.innerHTML = "성공";
+        document.querySelector("#div1").innerHTML = "성공";
+
+        // 문제2
+        var q2 = document.querySelector("#test");
+        // console.log(q2);
+        // console.log(q2.value);
+        q2.value = "성공";
+
+        // 문제3
+        var q3 = document.querySelector("#span").innerHTML;
+        console.log(q3);
+
+        // 문제4
+        var q4 = document.querySelector("#test2").type;
+        // console.log(q4);
+        document.querySelector("#test2").type = "text";
+    </script>
+</body>
+
+</html>

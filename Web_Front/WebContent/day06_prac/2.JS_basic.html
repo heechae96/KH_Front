@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기초 실습2</title>
+</head>
+
+<body>
+    <fieldset style="border:1px solid red">
+        <legend>보기</legend>
+        <label id="la1">이름 : </label> <input type="text" id="id" placeholder="아이디를 입력하세요" /><br>
+        <label id="la2">pass : </label> <input type="text" id="pwd" placeholder="비밀번호를 입력하세요" /><br>
+        <label id="la3">name : </label> <input type="text" id="name" placeholder="비밀번호를 입력하세요" /><br>
+        <label id="la4">addr : </label> <input type="text" id="addr" placeholder="주소를 입력하세요" /><br>
+    </fieldset>
+    <br><br><br>
+    문제1<br>
+    보기에 있는 "이름 : " -> "ID : " 으로 변경 되도록 하여라.<br>
+    <br><br><br>
+    문제2<br>
+    현재는 패스워드 입력시 비밀번호가 노출되는 형태이다.<br>
+    비밀번호 입력시 비밀번호가 노출되지 않도록 만들어라.<br>
+    <br><br><br>문제3<br>
+    name의 기본 노출값이 이상하다.! 기본 노출값이 "비밀번호를 입력하세요"가 아닌<br>
+    "이름을 입력하세요"로 변경하시오<br>
+    <br><br><br>문제4<br>
+    addr의 주소 입력창이 너무 짧다! 최대 50글자를 입력할 수 있도록<br>
+    입력바를 길게 만들어라.<br>
+    <br><br><br>문제5<br>
+    보기에 있는 필드에 내용을 작성하고 <br>
+    작성된 내용을 모두 가져와서 alert창에 출력하시오<br>
+    단, getElementById를 사용하지 말고 처리하시오 <br>
+    ex)<br>
+    ID : XXX <br>
+    PW : XXXXXX <br>
+    이름 : XXX <br>
+    주소 : XXXXXXXX <br>
+    <script>
+        // 문제1
+        document.querySelector("#la1").innerHTML = "ID : ";
+        
+        // 문제2
+        // console.log(document.querySelector("#pwd").type);
+        document.querySelector("#pwd").type = "password";
+        // console.log(document.querySelector("#pwd").type);
+
+        // 문제3
+        // var name = document.querySelector("#name").placeholder;
+        // console.log(name);
+        document.querySelector("#name").placeholder = "이름을 입력하세요";
+
+        // 문제4
+        // var addr = document.querySelector("#addr");
+        document.querySelector("#addr").size = 50;
+
+        // 문제5
+        // input태그에 값을 입력하고
+        // 버튼을 누르면 입력한 값이
+        // alert창으로 띄워라!!
+
+        // 자바스크립트로 input태그에 값을 각각 넣어줌
+        // 새로고침 했을때 값이 들어가 있음
+        document.querySelector("#id").value = "shinheechae";
+        document.querySelector("#pwd").value = "pass1234";
+        document.querySelector("#name").value = "신희채";
+        document.querySelector("#addr").value = "서울시 영등포구 가마산로 442";
+
+        // 값이 들어가 있는 input태그를 선택
+        var inputTags = document.querySelectorAll("input");
+        // 배열로 저장되므로 index로 접근
+        var idVal = inputTags[0].value;
+        var pwdVal = inputTags[1].value;
+        var nameVal = inputTags[2].value;
+        var addrVal = inputTags[3].value;
+        
+
+        alert("ID : " + idVal + "\n" 
+            + "PW : " + pwdVal + "\n" 
+            + "이름 : " + nameVal + "\n"
+            + "주소 : " + addrVal + "\n");
+    </script>
+</body>
+
+</html>
