@@ -43,7 +43,12 @@ input[type=submit], input[type=reset]{
     text-align: center;
 }
 
+/* display: flex 써보기 */
 #button-area{
-    text-align: center;
+    /* text-align: center; */
     margin-top: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
 }

@@ -21,3 +21,21 @@ li{
 input[type=text], input[type=email], input[type=tel]{
     width: 300px;
 }
+
+/* 버튼(주문하기, 취소하기) 스타일 */
+form > div{
+    /* text-align: center; */
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+form > div > input{
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+    box-shadow: 1px 1px 1px #ccc;
+}
