@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그라데이션 관련 스타일</title>
+    <style>
+        .linear-gradient {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+
+        #gradient1 {
+            background: linear-gradient(to bottom, blue, white);
+        }
+
+        #gradient2 {
+            background: linear-gradient(45deg, gold, black);
+        }
+
+        #gradient3 {
+            background: linear-gradient(to right, red, white, 50%, blue);
+        }
+
+        #gradient4 {
+            background: linear-gradient(red, orange, yellow, green, blue, navy, purple);
+        }
+
+        #gradient5 {
+            background: repeating-linear-gradient(blue, red 25%);
+        }
+
+        #gradient6 {
+            background: repeating-linear-gradient(red, red 5%, orange 5%, orange 10%, yellow 10%, yellow 15%, green 15%, green 20%, blue 20%, blue 25%, navy 25%, navy 30%, purple 30%, purple 35%);
+        }
+
+        .circle-gradient {
+            width: 500px;
+            height: 300px;
+            border: 1px solid black;
+        }
+
+        #gradient7 {
+            background: radial-gradient(blue, red);
+        }
+
+        #gradient8 {
+            background: radial-gradient(circle, blue, red);
+        }
+
+        /* 
+            브라우져 접두어
+            1. -webkit- : Safari, Chrome, Android, ios
+            2. -moz- : Firefox
+            3. -o- : Opera
+        */
+        #gradient9 {
+            background: radial-gradient(75% 75%, circle, gold, black);
+            background: -webkit-radial-gradient(75% 75%, circle, gold, black);
+            background: -moz-radial-gradient(75% 75%, circle, gold, black);
+            background: -o-radial-gradient(75% 75%, circle, gold, black);
+        }
+
+        #gradient10 {
+            background: radial-gradient(circle closest-side, white, blue, red);
+        }
+
+        #gradient11 {
+            background: radial-gradient(circle closest-corner, white, blue, red);
+        }
+
+        #gradient12 {
+            background: radial-gradient(circle farthest-side, white, blue, red);
+        }
+
+        #gradient13 {
+            background: radial-gradient(circle farthest-corner, white, blue, red);
+        }
+
+        #gradient14{
+            background: repeating-radial-gradient(white, gold, black 10%);
+        }
+
+        #gradient15{
+            background: repeating-radial-gradient(white, white 10%, gold 10%, gold 20%, black 20%, black 30%);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>그라데이션</h1>
+    <h3>선형 그라데이션</h3>
+    <p>색상이 수직, 수평, 대각선 방향으로 일정하게 변하는 것</p>
+    <h4>색상만 지정</h4>
+    <div id="gradient1" class="linear-gradient"></div>
+    <h4>방향을 지정</h4>
+    <div id="gradient2" class="linear-gradient"></div>
+    <h4>중간색 지정</h4>
+    <div id="gradient3" class="linear-gradient"></div>
+    <h4>중간색 여러개 지정</h4>
+    <div id="gradient4" class="linear-gradient"></div>
+    <h4>그라데이션 반복</h4>
+    <div id="gradient5" class="linear-gradient"></div>
+    <h4>그라데이션 반복(색 구분 명확하게)</h4>
+    <div id="gradient6" class="linear-gradient"></div>
+    <hr>
+    <h3>원형 그라데이션</h3>
+    <p>색상이 원이나 타원의 중심부터 동심원을 그리며 바깥 방향으로 색상이 변경되는 것</p>
+    <h4>색상만 지정</h4>
+    <div id="gradient7" class="circle-gradient"></div>
+    <h4>모양 지정</h4>
+    <div id="gradient8" class="circle-gradient"></div>
+    <h4>시작점 지정</h4>
+    <div id="gradient9" class="circle-gradient"></div>
+    <h4>사이즈 지정</h4>
+    <div id="gradient10" class="circle-gradient"></div>
+    <div id="gradient11" class="circle-gradient"></div>
+    <div id="gradient12" class="circle-gradient"></div>
+    <div id="gradient13" class="circle-gradient"></div>
+    <h4>원형그라데이션 반복</h4>
+    <div id="gradient14" class="circle-gradient"></div>
+    <h4>원형그라데이션 반복(색 구분 명확하게)</h4>
+    <div id="gradient15" class="circle-gradient"></div>
+</body>
+
+</html>
