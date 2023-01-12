@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 만들기</title>
+    <style>
+        table{
+            float: left;
+            margin: 20px;
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px 15px;
+            border: 1px solid #222;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>자동 테이블 만들기</h1>
+    <script>
+        var row = prompt("테이블의 행의 갯수는?");
+        var col = prompt("테이블의 열의 갯수는?");
+        var store = 1;
+        document.write("<table>");
+        for (var i = 0; i < row; i++) {
+            document.write("<tr>");
+            for (var j = 0; j < col; j++) {
+                document.write("<td>" + (store + j) + "</td>");
+            }
+            // console.log(j);
+            store += j;
+            // console.log(store);
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+
+</html>

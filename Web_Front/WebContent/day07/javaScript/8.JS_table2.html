@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자리 배치도</title>
+    <style>
+        table {
+            float: left;
+            margin: 20px;
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px 15px;
+            border: 1px solid #222;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var people = prompt("입장객은 몇 명인가요?");
+        var chair = prompt("한 줄에 의자의 갯수는?");
+        // console.log(people);
+        // console.log(chair);
+        var line = parseInt(people / chair)+1;
+        // var line = Math.floor(people / chair);
+        console.log(line);
+        var empty = people % chair;
+        console.log(empty);
+        var store = 1;
+        document.write("<table>");
+        for (var i = 0; i < line; i++) {
+            document.write("<tr>");
+            for (var j = 0; j < chair; j++) {
+                if(store>people) break;
+                document.write("<td>좌석" + (store) + "</td>");
+                store++;
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팩토리얼 계산하기</title>
+    <style>
+        div, h1 {
+            text-align: center;
+        }
+        div{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 처음 실행시 body쪽 내용이 출력 안되는게 맞음.. -->
+    <!-- 한번에 script부분까지 읽어서 출력 -->
+    <h1>While문을 사용한 팩토리얼 계산</h1>
+    <div>1</div>
+    <script>
+        // 취소하면 값을 입력하지 않았습니다
+        // 5 -> 5! = 120
+        // 기본은 10
+        
+        // 5! = 5 * 4 * 3 * 2 * 1
+        var num = prompt("숫자를 입력하세요", 10);
+        var input = document.querySelector("div");
+        // console.log(num);
+        var i = 1;
+        var result = 1;
+        if(num == null){
+            input.innerHTML = "값을 입력하지 않았습니다";
+        }else{
+            while(i <= num){
+                result *= i;
+                i++;
+            }
+            input.innerHTML = num + "! : " + result;
+        }
+    </script>
+</body>
+
+</html>

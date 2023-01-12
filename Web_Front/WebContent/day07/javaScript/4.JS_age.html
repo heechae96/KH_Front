@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이 계산하기</title>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+        var currentYear = 2023;
+        var birthYear = prompt("당신이 태어난 연도를 입력하세요.(YYYY)");
+        var age;
+
+        age = currentYear - birthYear + 1;
+        console.log(age);
+        document.querySelector("#result").innerHTML = 
+        currentYear + "년 현재<br>" +
+        birthYear + "년생의 나이: " + age + "살";
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우져 객체 모델</title>
+</head>
+<body>
+    <h1>Window 객체</h1>
+    <p>window 객체는 자바스크립트의 최상위 객체이며, BOM과 DOM으로 나뉜다.</p>
+    <h3>Window 객체</h3>
+    <p>브라우저 창에 대한 설정을 하는 객체</p>
+    <!-- <button onclick="javascript:var result = confirm('클릭됨'); console.log(result);">confirm 확인</button> -->
+    <button onclick="callConfirm()">confirm 확인</button>
+    <br><br>
+    <!-- <button onclick="javascript:var userId = prompt('클림됨'); console.log(userId);">promt 확인</button> -->
+    <button onclick="callPrompt()">promt 확인</button>
+    <script>
+        // 확인만 뜸
+        // window.alert("확인을 누르세요");
+        
+        // 확인 취소 2개가 뜸
+        // var result = window.confirm("확인을 누르시면 true, 취소를 누르시면 false");
+        // console.log(result);
+        
+        // 확인 취소 + 값을 입력받도록 함
+        // var userId = window.prompt("아이디를 입력하세요");
+        // console.log(userId);
+
+        // 인라인 스타일로 이벤트를 걸면 너무 길어짐
+        // 함수로 대체
+        function callConfirm(){
+            var result = window.confirm("확인을 누르시면 true, 취소를 누르시면 false");
+            console.log(result);
+        }
+
+        function callPrompt(){
+            var userId = window.prompt("아이디를 입력하세요");
+            console.log(userId);
+        }
+    </script>
+</body>
+</html>
