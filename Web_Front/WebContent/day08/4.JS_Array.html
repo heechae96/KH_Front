@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>배열</title>
+    <style>
+        h5 {
+            font-style: italic;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,22 +39,127 @@
         10. 배열명.toString : 배열을 문자열로 변환
     </p>
 
-    <h5><i>indexOf 예제</i></h5>
+    <h5>indexOf 예제</h5>
     <div>
         <p>다음 중 좋아하는 과일을 작성하시오</p>
         <p id="p1">바나나 / 딸기 / 복숭아 / 수박</p>
         <input type="text" name="fruit" id="fruit">
         <input type="button" value="결과" onclick="fruitIndexOf();">
     </div>
-
+    <h5>concat예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="fruitConcat();">
+    </div>
+    <h5>join 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="fruitJoin();">
+    </div>
+    <h5>reverse 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="arrReverse();">
+    </div>
+    <h5>sort 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="arrSort();">
+    </div>
+    <h5>push/pop 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="pushPop();">
+    </div>
+    <h5>shift/unshift 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="shiftEx();">
+    </div>
     <script>
         function fruitIndexOf() {
             var pTag1 = document.querySelector("#p1");
             var pArrs = pTag1.innerHTML.split(" / ");
-            console.log(pArrs);
-            console.log("딸기의 인덱스 : " + pArrs.indexOf("딸기"));
+            // console.log(pArrs);
+            // console.log("딸기의 인덱스 : " + pArrs.indexOf("딸기"));
             var inputVal = document.querySelector("#fruit").value;
-            console.log(pArrs.indexOf(inputVal));
+            console.log("입력하신 값은: " + (pArrs.indexOf(inputVal) + 1) + "번째 있습니다");
+        }
+
+        function fruitConcat() {
+            // 배열 선언 2가지 방법
+            // var fruits = [];
+            var fruits = new Array();
+
+            // 초기화 2가지 방법
+            fruits[0] = "귤";
+            fruits[1] = "배";
+            fruits[2] = "딸기";
+            fruits[3] = "체리";
+
+            var fruitsBag = ["사과", "포도", "블루베리"];
+            // 두 개의 배열을 합침
+            var conResult = fruits.concat(fruitsBag);
+            console.log(conResult);
+        }
+
+        function fruitJoin() {
+            var fruitsBag = ["복숭아", "키위", "파인애플", "방울토마토"];
+            // 배열을 문자열로 반환
+            var joinResult = fruitsBag.join(", ");
+            console.log(joinResult);
+            var arrs = ["<", ">hi</", ">"];
+            var result = arrs.join("h1");
+            console.log(result);
+        }
+
+        function arrReverse() {
+            var sampleArrs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            var sArrs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            sArrs.reverse();
+            console.log(sampleArrs.join(" ") + '\n역순: ' + sArrs.join(" "))
+        }
+
+        function arrSort() {
+            var arrSort = [1, 2, 7, 4, 5, 8, 9, 3, 6, 10];
+            arrSort.sort();
+            // 정렬이 안되는게 정상
+            console.log(arrSort);
+            arrSort.sort(sortASC);
+            console.log(arrSort);
+            arrSort.sort(sortDESC);
+            console.log(arrSort)
+        }
+
+        function sortASC(a, b) {
+            return a - b;
+        }
+        function sortDESC(a, b) {
+            return b - a;
+        }
+
+        function pushPop(){
+            var companies = ["네이버", "카카오", "라인", "쿠팡", "배민"];
+            console.log(companies);
+            companies.push("당근마켓");
+            companies.push("토스");
+            console.log(companies);
+            console.log(companies.pop());
+            console.log(companies);
+            console.log(companies.pop());
+            console.log(companies.pop());
+        }
+
+        function shiftEx(){
+            var globals = ["Meta", "Amazone", "Apple", "netflix", "Google"];
+            console.log(globals);
+            globals.unshift("Oracle");
+            globals.unshift("Tesla");
+            console.log(globals);
+            console.log(globals.shift());
+            console.log(globals.shift());
+            console.log(globals.shift());
+            console.log(globals.shift());
         }
     </script>
 </body>

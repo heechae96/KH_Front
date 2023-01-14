@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>>입력한 값 출력</title>
+    <style>
+        #area {
+            width: 400px;
+            height: 150px;
+            background: #ffff99;
+            border: 1px solid #6666ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>입력한 값 출력 문제</h2>
+    <label>구매자 : </label>
+    <input type="text" placeholder="구매자의 이름을 입력하세요.">
+    <br>
+    <br>
+    <label>상품명 : </label>
+    <input type="text" id="pname" placeholder="구매 상품명을 입력하세요">
+    <br>
+    <br>
+    <label>가격 : </label>
+    <input type="text" name="price" placeholder="구매 가격을 입력하세요.">
+    <br>
+    <br>
+    <button onclick="printValue();">입력값 출력하기</button>
+    <br>
+    <br>
+    <div id="area"></div>
+    <script>
+        // 일반 함수
+        function printValue(){
+            // ...
+        }
+
+        // 익명 함수
+        var printValue = function(){
+            // var buyer = document.querySelector("[placeholder='구매자의 이름을 입력하세요.']");
+            // var buyerResult = buyer.value;
+            // var box = document.querySelector("#area");
+            // box.innerHTML += buyerResult + "<br>";
+            
+            // var name = document.querySelector("#pname");
+            // var nameResult = name.value;
+            // box.innerHTML += nameResult + "<br>";
+
+            // var price = document.querySelector("[name='price']");
+            // var priceResult = price.value;
+            // box.innerHTML += priceResult + "<br>";
+            
+            // querySelectorAll하면 배열로 가져와서 사용 가능
+            var inputTags = document.querySelectorAll("[type=text]");
+            console.log(inputTags);
+            var arr1 = inputTags[0].value;
+            var arr2 = inputTags[1].value;
+            var arr3 = inputTags[2].value;
+            var divTag = document.querySelector("#area");
+            divTag.innerHTML = "구매자 : " + arr1
+                                + "<br>상품명: " + arr2
+                                + "<br>가격: " + arr3
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 실습</title>
+    <style>
+        * {
+            margin: 5px;
+        }
+
+        span {
+            color: blue;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>간이 계산기 만들기</h1>
+    첫번째 값 : <input type="text" id="input1"><br>
+    두번째 값 : <input type="text" id="input2"><br>
+    <input onclick="choice('+')" type="button" value="+">
+    <input onclick="choice('-')" type="button" value="-">
+    <input onclick="choice('*')" type="button" value="x">
+    <input onclick="choice('/')" type="button" value="/">
+    <input onclick="choice('%')" type="button" value="%">
+    <br>
+    계산결과 : <span id="result"></span>
+
+    <script>
+        function choice(operator) {
+            // 변환을 안하면 문자열 처리됨
+            var num1 = Number(document.querySelector("#input1").value);
+            var num2 = parseInt(document.querySelector("#input2").value);
+            var result = 'garbage';
+            var spanTag = document.querySelector("#result");
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                case '%':
+                    result = num1 % num2;
+                    break;
+            }
+            spanTag.innerHTML = result
+        }
+    </script>
+</body>
+
+</html>

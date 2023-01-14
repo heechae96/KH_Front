@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 배열문제2</title>
+</head>
+
+<body>
+    <h1> 배열 실습 문제 2</h1>
+    <br><br> 문제4. 다음 보기의 문자열을 바탕으로<br> 삭제할 음식과 추가할 음식을 입력받아서 <br> 지우고,추가하는 코드를 작성하여라. (단, 1개씩 입력)<br>
+    <br> 예시) 삭제 : 당근 / 추가 : 타코야끼 <br> 결과-> 피자 치킨 햄버거 떡볶이 타코야끼 <br>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="stringla4">피자 치킨 당근 햄버거 떡볶이</label><br>
+    </fieldset><br>
+    <input type="text" id="remove" size="25" placeholder="삭제할 음식이름을 입력하세요">
+    <input type="text" id="add" size="25" placeholder="추가할 음식이름을 입력하세요">
+    <p style="border:1px solid red;" id="print4">이 부분에 정답이 출력 될 수 있도록 하세요</p>
+    <button onclick="printItems();"> 처리 및 출력 </button>
+
+    <script>
+        function printItems() {
+            var foods = document.querySelector("#stringla4").innerHTML.split(" ");
+            // console.log(foods);
+            var removeFood = document.querySelector("#remove").value;
+            var addFood = document.querySelector("#add").value;
+            // 삭제
+            // 1. foods라는 배열에서 찾아서 삭제해야 함
+            var index = foods.indexOf(removeFood);
+            if (index != -1) {
+                // index번째 부터 1개만 삭제
+                foods.splice(index, 1);
+            }
+            // 2. foods에서 삭제할 음식빼고 새롭게 배열 생성
+            var newFoods = [];
+            for (var i = 0, j = 0; i < foods.length; i++) {
+                if (foods[i] != removeFood) {
+                    // 새로운 배열 넣기
+                    // 2가지 방법 존재
+                    // newFoods.push(foods[i]);
+                    newFoods[j] = foods[i];
+                    j++;
+                }
+            }
+            // 추가
+            foods.push(addFood);
+            var pTag = document.querySelector("#print4");
+            // 배열을 문자열로 만드는데 공백으로 띄워서 만든다
+            pTag.innerHTML = foods.join(" ");
+        }
+    </script>
+</body>
+
+</html>
