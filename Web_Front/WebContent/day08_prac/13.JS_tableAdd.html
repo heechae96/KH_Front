@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 테이블 추가하기</title>
+</head>
+
+<body>
+    <h2>JS 테이블 추가하기</h2>
+    <p>폼 입력양식에 값을 입력하고 추가 버튼을 누르면
+        입력값들을 아래의 테이블에 한줄씩 추가되게 함</p>
+    <form method="post" action="">
+        <label>이름 : <input type="text" id="name"></label>
+        <br>
+        <label>나이 : <input type="text" name="age" id="age"></label>
+        <br>
+        <label>성별 : </label>
+        <input type="radio" name="gender" value="M" id="male"><label for="male"> 남 </label>
+        <input type="radio" name="gender" value="F" id="female"><label for="female"> 여 </label>
+        <br>
+        <label>전화번호 : <input type="tel" id="phone"></label>
+        <br>
+        <label>취미 : </label>
+        <input type="checkbox" name="hobby" value="movie" id="movie"><label for="movie"> 영화보기</label>
+        <input type="checkbox" name="hobby" value="music" id="music"><label for="music"> 음악듣기 </label>
+        <input type="checkbox" name="hobby" value="sport" id="sport"><label for="sport"> 운동 </label>
+        <input type="checkbox" name="hobby" value="reading" id="reading"><label for="reading"> 독서 </label>
+        <input type="checkbox" name="hobby" value="climb" id="climb"><label for="climb"> 등산 </label>
+        <br>
+        <input type="button" value="추가하기" onclick="addUser();">
+    </form>
+    <p id="p3">
+    <table id="tbl" width="500px" border="1" cellspacing="0">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>성별</th>
+            <th>전화번호</th>
+            <th>취미</th>
+        </tr>
+        <!-- 입력값들을 추가해 나감 -->
+
+    </table>
+    </p>
+    <script>
+        function addUser() {
+            var name = document.querySelector("#name").value;
+            var age = document.querySelector("#age").value;
+            var phone = document.querySelector("#phone").value;
+
+            var tf = [];
+            tf.push(document.querySelector("#male").checked);
+            tf.push(document.querySelector("#female").checked);
+
+            var korGender = [];
+            korGender.push(document.querySelector("label[for=male]").innerHTML);
+            korGender.push(document.querySelector("label[for=female]").innerHTML);
+
+            var genderArr = [];
+            for (var i = 0; i < tf.length; i++) {
+                if (tf[i])
+                    genderArr.push(korGender[i]);
+            }
+            var genderCode = genderArr[0];
+
+            tf = [];
+            tf.push(document.querySelector("#movie").checked);
+            tf.push(document.querySelector("#music").checked);
+            tf.push(document.querySelector("#sport").checked);
+            tf.push(document.querySelector("#reading").checked);
+            tf.push(document.querySelector("#climb").checked);
+
+            var korHobby = [];
+            korHobby.push(document.querySelector("label[for=movie]").innerHTML);
+            korHobby.push(document.querySelector("label[for=music]").innerHTML);
+            korHobby.push(document.querySelector("label[for=movie]").innerHTML);
+            korHobby.push(document.querySelector("label[for=sport]").innerHTML);
+            korHobby.push(document.querySelector("label[for=climb]").innerHTML);
+
+            var hobbyArr = [];
+            for (var i = 0; i < tf.length; i++) {
+                if (tf[i])
+                    hobbyArr.push(korHobby[i]);
+            }
+            var hobbyCode = hobbyArr.toString();
+
+            var code = "<tr>"
+                + "<td>" + name + "</td>"
+                + "<td>" + age + "</td>"
+                + "<td>" + genderCode + "</td>"
+                + "<td>" + phone + "</td>"
+                + "<td>" + hobbyCode + "</td>"
+                + "</tr>";
+
+            var tbodyTag = document.querySelector("#tbl>tbody");
+            tbodyTag.innerHTML += code;
+
+            // 초기화 필요
+            document.querySelector("#name").value = null;
+            document.querySelector("#age").value = null;
+            document.querySelector("#phone").value = null;
+            document.querySelector("#male").checked = null;
+            document.querySelector("#female").checked = null;
+            document.querySelector("#movie").checked = null;
+            document.querySelector("#music").checked = null;
+            document.querySelector("#sport").checked = null;
+            document.querySelector("#reading").checked = null;
+            document.querySelector("#climb").checked = null;
+        }    
+    </script>
+</body>
+
+</html>
