@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 연습</title>
+</head>
+
+<body>
+    <!-- 스크립트 태그가 바디 내부의 마지막에 왔으면 상관없을텐데 앞부분에 와서 작성 필요!! -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 실습2
+            var barTag = document.querySelector("#txtsize");
+            // 1. 표준
+            // barTag.addEventListener("change", function () {
+            //     document.querySelector("#h1").style.fontSize = barTag.value + "pt";
+            // })
+            // 2. 고전
+            barTag.onchange = function() {
+                document.querySelector("#h1").style.fontSize = barTag.value + "pt";
+            }
+
+            // 실습3
+            var okBtn = document.querySelector("#ok");
+            // 1. 고전
+            okBtn.onclick = function () {
+                textTag = document.querySelector("#hh");
+                // console.log(textTag);
+                textBox = document.querySelector("#in");
+                // console.log(textBox);
+                textTag.innerHTML = textBox.value;
+            }
+            // 2. 표준
+            // okBtn.addEventListener("click", function(){
+            //     textTag = document.querySelector("#hh");
+            //     // console.log(textTag);
+            //     textBox = document.querySelector("#in");
+            //     // console.log(textBox);
+            //     textTag.innerHTML = textBox.value;
+            // });
+        });
+        // 실습1
+        // 함수는 누르면 작동. 미리 만들어만 둔 것.
+        // 따라서 document.addEventListener내부에 들어갈 필요가 없다
+        function changeBg(color) {
+            // console.log(color);
+            document.querySelector("body").style.backgroundColor = color;
+        }
+
+    </script>
+    <h1 id="h1">이벤트핸들러 테스트</h1>
+    <h3>실습1 : select 에서 색이름을 선택하면 body 의 배경색이 바뀌게 함</h3>
+    배경색 선택 :
+    <select onchange="changeBg(this.value);">
+        <option value="white" selected>흰색
+        <option value="yellow">노란색
+        <option value="red">빨간색
+        <option value="green">녹색
+        <option value="blue">파란색
+    </select>
+    <br><br>
+    <h3>실습2 : range 의 값이 변경되면 h1 태그의 글자크기가 변경되게 함</h3>
+    글자크기 선택 : <input type="range" min="10" max="100" step="10" id="txtsize">
+    <br><br>
+    <h3>실습3 : 값을 입력하고 확인 버튼을 누르면 입력값으로 제목글자를 바꿈</h3>
+    <h1 id="hh">제목글자를 바꾸세요.</h1>
+    <input type="text" id="in"><input type="button" value="확인" id="ok">
+    <br><br>
+</body>
+
+</html>

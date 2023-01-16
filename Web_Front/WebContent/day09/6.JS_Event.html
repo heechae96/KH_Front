@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 이벤트</title>
+    <!-- <script src="" defer></script> -->
+</head>
+
+<body>
+    <!-- head부분에 defer대신 쓴 것 -->
+    <script>
+        // window.onload = function () {
+        //     var divTag = document.querySelector("#div-1");
+        //     divTag.innerHTML = "고전 이벤트 모델로 (온로드)실행되었습니다!!"
+        // }
+        document.addEventListener("DOMContentLoaded", function () {
+            var divTag = document.querySelector("#div-1");
+            divTag.innerHTML = "표준 이벤트 모델로 (온로드)실행되었습니다!!"
+        });
+    </script>
+    <div id="div-1"></div>
+    <h1>이벤트</h1>
+    <p>
+        이벤트 : 웹 페이지에서 어떠한 행위(사용자의 행동)가 발생할 것을 이벤트라 함<br>
+        이벤트 활용 : 이벤트 속성과 이벤트 핸들러(함수)를 연동하여 이벤트 발생시 특정 기능을 하도록 함
+    </p>
+    <h3>이벤트 설정방법</h3>
+    <p>
+        1. 고전 이벤트 모델 <br>
+        2. 인라인 이벤트 모델 <br>
+        3. 표준 이벤트 모델 <br>
+    </p>
+    <h3>고전 이벤트 모델</h3>
+    <p>
+        1. 요소 객체가 가지고 있는 이벤트 속성에 이벤트 핸들러를 연결하는 방법 <br>
+        2. 이벤트를 제거 할 때는 속성값에 null값을 넣어주면 됨
+    </p>
+    <button id="btn1">고전 이벤트 모델</button>
+
+    <h3>인라인 이벤트 모델</h3>
+    <p>
+        요소 내부에 이벤트를 작성하는 방법 <br>
+        script 태그에 있는 함수를 호출하는 방식 <br>
+    </p>
+    <button onclick="inlineEvent();">인라인 이벤트 모델</button>
+    <button onclick="null">인라인 이벤트 제거</button>
+
+    <h3>표준 이벤트 모델</h3>
+    <p>
+        1. w3c에서 공식적으로 지정한 이벤트 모델 <br>
+        2. 한번에 여러가지 이벤트 핸들러 설정 가능
+    </p>
+    <button id="sBtn1">표준 이벤트 모델</button>
+    <script>
+        var sBtn1 = document.querySelector("#sBtn1");
+        sBtn1.addEventListener("click", function () {
+            alert("표준 이벤트 동작")
+        });
+        var btn1 = document.querySelector("#btn1");
+        btn1.onclick = function () {
+            alert("고전 이벤트 동작");
+        }
+        // btn1.onclick = null;
+
+        function inlineEvent() {
+            alert("인라인 이벤트 동작");
+        }
+    </script>
+</body>
+
+</html>
