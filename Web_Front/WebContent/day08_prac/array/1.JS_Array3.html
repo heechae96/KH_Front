@@ -34,54 +34,76 @@
         </div>
     </fieldset><br>
     <script>
-        var colorArr = [];
-        var code = "";
-        // console.log("교체전: " + box);
+        // 내가 구현한 코드
+        // var colorArr = [];
+        // var code = "";
+        // // console.log("교체전: " + box);
+        // function clickDiv(color) {
+        //     switch (color) {
+        //         case 'red':
+        //             document.querySelector("#red").style.display = "none";
+        //             colorArr.push(color);
+        //             code += document.querySelector("#red").outerHTML;
+        //             break;
+        //         case 'blue':
+        //             document.querySelector("#blue").style.display = "none";
+        //             colorArr.push(color);
+        //             code += document.querySelector("#blue").outerHTML;
+        //             break;
+        //         case 'green':
+        //             document.querySelector("#green").style.display = "none";
+        //             colorArr.push(color);
+        //             code += document.querySelector("#green").outerHTML;
+        //             break;
+        //         case 'pink':
+        //             document.querySelector("#pink").style.display = "none";
+        //             colorArr.push(color);
+        //             code += document.querySelector("#pink").outerHTML;
+        //             break;
+        //         case 'yellow':
+        //             document.querySelector("#yellow").style.display = "none";
+        //             colorArr.push(color);
+        //             code += document.querySelector("#yellow").outerHTML;
+        //             break;
+        //     }
+        //     // console.log("누적코드: " + code);
+
+        //     if (colorArr.length == 5) {
+        //         // console.log("합산코드: " + code);
+        //         document.querySelector("#div5").innerHTML = code;
+
+        //         divTags = document.querySelectorAll(".divss");
+        //         for (var i = 0; i < divTags.length; i++) {
+        //             divTags[i].style.display = "block";
+        //         }
+
+        //         // 새롭게 초기화 작업
+        //         while (colorArr.length != 0) {
+        //             colorArr.pop();
+        //             console.log(colorArr);
+        //         }
+        //         code = "";
+        //     }
+        // }
+
+        // 모범답안
+        var clickArr = [];
         function clickDiv(color) {
-            switch (color) {
-                case 'red':
-                    document.querySelector("#red").style.display = "none";
-                    colorArr.push(color);
-                    code += document.querySelector("#red").outerHTML;
-                    break;
-                case 'blue':
-                    document.querySelector("#blue").style.display = "none";
-                    colorArr.push(color);
-                    code += document.querySelector("#blue").outerHTML;
-                    break;
-                case 'green':
-                    document.querySelector("#green").style.display = "none";
-                    colorArr.push(color);
-                    code += document.querySelector("#green").outerHTML;
-                    break;
-                case 'pink':
-                    document.querySelector("#pink").style.display = "none";
-                    colorArr.push(color);
-                    code += document.querySelector("#pink").outerHTML;
-                    break;
-                case 'yellow':
-                    document.querySelector("#yellow").style.display = "none";
-                    colorArr.push(color);
-                    code += document.querySelector("#yellow").outerHTML;
-                    break;
-            }
-            // console.log("누적코드: " + code);
-
-            if (colorArr.length == 5) {
-                // console.log("합산코드: " + code);
-                document.querySelector("#div5").innerHTML = code;
-
-                divTags = document.querySelectorAll(".divss");
-                for (var i = 0; i < divTags.length; i++) {
-                    divTags[i].style.display = "block";
+            var selected = document.querySelector("#" + color);
+            // console.log(selected);
+            clickArr.push(selected);
+            console.log(clickArr);
+            selected.style.display = "none";
+            var str = "";
+            if (clickArr.length == 5) {
+                for (var i = 0; i < clickArr.length; i++) {
+                    clickArr[i].style.display = "block";
+                    str += clickArr[i].outerHTML;
                 }
-
-                // 새롭게 초기화 작업
-                while (colorArr.length != 0) {
-                    colorArr.pop();
-                    console.log(colorArr);
+                document.querySelector("#div5").innerHTML = str;
+                while (clickArr.length != 0) {
+                    clickArr.pop();
                 }
-                code = "";
             }
         }
     </script>

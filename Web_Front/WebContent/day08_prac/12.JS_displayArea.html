@@ -28,11 +28,17 @@
     <h1>JS 표시영역 변경하기</h1>
     <fieldset>
         <legend>검색할 항목을 선택하세요.</legend>
-        <input type="radio" name="category" value="title" onclick="showDiv('title');" id="title"><label
+        <!-- <input type="radio" name="category" value="title" onclick="showDiv('title');" id="title"><label
+            for="title">제목</label> -->
+        <input type="radio" name="category" value="title" onclick="showDiv(this.value);" id="title"><label
             for="title">제목</label>
-        <input type="radio" name="category" value="date" onclick="showDiv('date');" id="date"><label
+        <!-- <input type="radio" name="category" value="date" onclick="showDiv('date');" id="date"><label
+            for="date">날짜</label> -->
+        <input type="radio" name="category" value="date" onclick="showDiv(this.value);" id="date"><label
             for="date">날짜</label>
-        <input type="radio" name="category" value="writer" onclick="showDiv('writer');" id="writer"><label
+        <!-- <input type="radio" name="category" value="writer" onclick="showDiv('writer');" id="writer"><label
+            for="writer">작성자</label> -->
+        <input type="radio" name="category" value="writer" onclick="showDiv(this.value);" id="writer"><label
             for="writer">작성자</label>
     </fieldset>
     <hr>
@@ -65,7 +71,7 @@
 
     <script>
         var showDiv = function (val) {
-            // console.log(val);
+            console.log(val);
             // val에 값에 맞게 각각의 display속성을 바꿔보자
             var divTags = document.querySelectorAll("div.box");
             for (var i = 0; i < divTags.length; i++) {

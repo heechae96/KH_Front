@@ -22,11 +22,11 @@
     <h1>간이 계산기 만들기</h1>
     첫번째 값 : <input type="text" id="input1"><br>
     두번째 값 : <input type="text" id="input2"><br>
-    <input onclick="choice('+')" type="button" value="+">
-    <input onclick="choice('-')" type="button" value="-">
-    <input onclick="choice('*')" type="button" value="x">
-    <input onclick="choice('/')" type="button" value="/">
-    <input onclick="choice('%')" type="button" value="%">
+    <input onclick="choice(this.value)" type="button" value="+">
+    <input onclick="choice(this.value)" type="button" value="-">
+    <input onclick="choice(this.value)" type="button" value="x">
+    <input onclick="choice(this.value)" type="button" value="/">
+    <input onclick="choice(this.value)" type="button" value="%">
     <br>
     계산결과 : <span id="result"></span>
 
@@ -45,7 +45,7 @@
                 case '-':
                     result = num1 - num2;
                     break;
-                case '*':
+                case 'x':
                     result = num1 * num2;
                     break;
                 case '/':

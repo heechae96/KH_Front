@@ -46,70 +46,101 @@
     </table>
     </p>
     <script>
+        // function addUser() {
+        //     var name = document.querySelector("#name").value;
+        //     var age = document.querySelector("#age").value;
+        //     var phone = document.querySelector("#phone").value;
+
+        //     var tf = [];
+        //     tf.push(document.querySelector("#male").checked);
+        //     tf.push(document.querySelector("#female").checked);
+
+        //     var korGender = [];
+        //     korGender.push(document.querySelector("label[for=male]").innerHTML);
+        //     korGender.push(document.querySelector("label[for=female]").innerHTML);
+
+        //     var genderArr = [];
+        //     for (var i = 0; i < tf.length; i++) {
+        //         if (tf[i])
+        //             genderArr.push(korGender[i]);
+        //     }
+        //     var genderCode = genderArr[0];
+
+        //     tf = [];
+        //     tf.push(document.querySelector("#movie").checked);
+        //     tf.push(document.querySelector("#music").checked);
+        //     tf.push(document.querySelector("#sport").checked);
+        //     tf.push(document.querySelector("#reading").checked);
+        //     tf.push(document.querySelector("#climb").checked);
+
+        //     var korHobby = [];
+        //     korHobby.push(document.querySelector("label[for=movie]").innerHTML);
+        //     korHobby.push(document.querySelector("label[for=music]").innerHTML);
+        //     korHobby.push(document.querySelector("label[for=movie]").innerHTML);
+        //     korHobby.push(document.querySelector("label[for=sport]").innerHTML);
+        //     korHobby.push(document.querySelector("label[for=climb]").innerHTML);
+
+        //     var hobbyArr = [];
+        //     for (var i = 0; i < tf.length; i++) {
+        //         if (tf[i])
+        //             hobbyArr.push(korHobby[i]);
+        //     }
+        //     var hobbyCode = hobbyArr.toString();
+
+        //     var code = "<tr>"
+        //         + "<td>" + name + "</td>"
+        //         + "<td>" + age + "</td>"
+        //         + "<td>" + genderCode + "</td>"
+        //         + "<td>" + phone + "</td>"
+        //         + "<td>" + hobbyCode + "</td>"
+        //         + "</tr>";
+
+        //     var tbodyTag = document.querySelector("#tbl>tbody");
+        //     tbodyTag.innerHTML += code;
+
+        //     // 초기화 필요
+        //     document.querySelector("#name").value = null;
+        //     document.querySelector("#age").value = null;
+        //     document.querySelector("#phone").value = null;
+        //     document.querySelector("#male").checked = null;
+        //     document.querySelector("#female").checked = null;
+        //     document.querySelector("#movie").checked = null;
+        //     document.querySelector("#music").checked = null;
+        //     document.querySelector("#sport").checked = null;
+        //     document.querySelector("#reading").checked = null;
+        //     document.querySelector("#climb").checked = null;
+        // }    
+
+        // 강사님 답안
         function addUser() {
             var name = document.querySelector("#name").value;
             var age = document.querySelector("#age").value;
             var phone = document.querySelector("#phone").value;
+            var tableTag = document.querySelector("#tbl");
 
-            var tf = [];
-            tf.push(document.querySelector("#male").checked);
-            tf.push(document.querySelector("#female").checked);
-
-            var korGender = [];
-            korGender.push(document.querySelector("label[for=male]").innerHTML);
-            korGender.push(document.querySelector("label[for=female]").innerHTML);
-
-            var genderArr = [];
-            for (var i = 0; i < tf.length; i++) {
-                if (tf[i])
-                    genderArr.push(korGender[i]);
+            // gender(라디오)는 둘 중 하나 체크된 값을 가져와야함
+            var gender = document.querySelectorAll("[name=gender]")
+            // console.log(gender);
+            if (gender[0].checked) {
+                gender = "남";
+            } else if (gender[1].checked) {
+                gender = "여";
             }
-            var genderCode = genderArr[0];
 
-            tf = [];
-            tf.push(document.querySelector("#movie").checked);
-            tf.push(document.querySelector("#music").checked);
-            tf.push(document.querySelector("#sport").checked);
-            tf.push(document.querySelector("#reading").checked);
-            tf.push(document.querySelector("#climb").checked);
-
-            var korHobby = [];
-            korHobby.push(document.querySelector("label[for=movie]").innerHTML);
-            korHobby.push(document.querySelector("label[for=music]").innerHTML);
-            korHobby.push(document.querySelector("label[for=movie]").innerHTML);
-            korHobby.push(document.querySelector("label[for=sport]").innerHTML);
-            korHobby.push(document.querySelector("label[for=climb]").innerHTML);
-
-            var hobbyArr = [];
-            for (var i = 0; i < tf.length; i++) {
-                if (tf[i])
-                    hobbyArr.push(korHobby[i]);
+            // hobby(체크박스)는 여러개 체크된 경우까지 생각해야함
+            var hobby = document.querySelectorAll("[name=hobby]");
+            console.log(hobby);
+            var hobbyVal = "";
+            for (var i = 0; i < hobby.length; i++) {
+                if (hobby[i].checked) {
+                    hobbyVal += hobby[i].value + " ";
+                    console.log(hobbyVal);
+                }
             }
-            var hobbyCode = hobbyArr.toString();
-
-            var code = "<tr>"
-                + "<td>" + name + "</td>"
-                + "<td>" + age + "</td>"
-                + "<td>" + genderCode + "</td>"
-                + "<td>" + phone + "</td>"
-                + "<td>" + hobbyCode + "</td>"
-                + "</tr>";
-
-            var tbodyTag = document.querySelector("#tbl>tbody");
-            tbodyTag.innerHTML += code;
-
-            // 초기화 필요
-            document.querySelector("#name").value = null;
-            document.querySelector("#age").value = null;
-            document.querySelector("#phone").value = null;
-            document.querySelector("#male").checked = null;
-            document.querySelector("#female").checked = null;
-            document.querySelector("#movie").checked = null;
-            document.querySelector("#music").checked = null;
-            document.querySelector("#sport").checked = null;
-            document.querySelector("#reading").checked = null;
-            document.querySelector("#climb").checked = null;
-        }    
+            tableTag.innerHTML += "<tr><td>" + name + "</td><td>" + age
+                                    + "</td><td>" + gender + "</td><td>" + phone
+                                    + "</td><td>" + hobbyVal + "</td></tr>";
+        }
     </script>
 </body>
 
