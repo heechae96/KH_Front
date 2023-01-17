@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            height: 100px;
+            background-color: #ccc;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DOM(Document Object Model)</h1>
+    <p>
+        문서객체 : HTML에 있는 태그를 객체화하여
+        자바스크립트에서 다룰 수 있게 한 것,
+        모든 노드 객체에 접근할 수 있는 요소와 메소드를 제공
+    </p>
+    <br>
+    노드 : HTML에 있는 태그를 구조화(트리)하였을 때 각각의 태그가 노드임
+    <br><br>
+    요소 노드(elements node)와 텍스트 노드(text node) : 요소 노드는
+    태그 자체를 의미하며 텍스트 노드는 태그에 기록되어 있는 문자임
+    <br>
+    <br>
+    절차 : 요소 노드 생성 -> 텍스트 노드 생성
+    -> 요소 노드에 텍스트 노드 추가
+    -> body객체에 요소 노드 추가
+    <br>
+    ex) h1 태그 생성 -> Hello 작성 -> innerHTML로 h1에 추가 -> body에 추가
+
+    <h1>텍스트 노드가 있는 노드 생성</h1>
+    <p>ex) div, p, span, ...</p>
+    <button id="textNodeBtn">실행확인</button>
+    <div id="area1" class="area"></div>
+
+    <h1>텍스트 노드가 없는 노드 생성</h1>
+    <p>ex) img, input, ...</p>
+    <button id="imgNodeBtn">실행확인</button>
+    <div id="area2" class="area"></div>
+
+    <h2>노드 삭제</h2>
+    <button id="nodeRemove">실행확인</button>
+
+    <h1>노드의 선택과 속성 변경</h1>
+    <section id="section1">
+        <h1>childNodes를 이용한 노드 선택</h1>
+        <div class="area">
+            <input type="text">
+            <input type="text">
+            <button id="btn-child">실행확인</button>
+        </div>
+    </section>
+    <section id="section2">
+        <h1>Element Node 속성 변경</h1>
+        <div>
+            <!-- <input type="text" class="img-word"> -->
+            <select name="" id="" class="img-select">
+                <option value="mic.jpg">카메라</option>
+                <option value="salad.jpg">샐러드</option>
+                <option value="tangerines.jpg">귤</option>
+            </select>
+            <input id="change-img" type="button" value="변경">
+        </div>
+        <div>
+            <img src="/images/link.png" alt="" class="img-tag">
+        </div>
+    </section>
+
+    <h2>Javascript를 이용한 HTML태그 접근</h2>
+    <p>자바스크립트를 이용하여 HTML태그를 동적으로 처리하기 위해서는 DOM객체의
+        메소드를 호출하여 접근해야함.
+    </p>
+    <h3>메소드</h3>
+    <p>
+        1. getElementById("아이디명")
+        : 태그의 id 속성값을 이용해서 태그 요소 객체정보를 가져옴(1개) <br>
+        2. getElementsByName("이름명") : 태그의 name 속성값을 이용해서 태그 요소의 객체 정보를
+        배열에 담아 가져옴(여러개 존재할 수 있음.) <br>
+        3. getElementsByTagName("태그명") : 태그명을 이용해서 태그들의 객체 정보를
+        배열에 담아 가져옴(여러개 존재할 수 있음.) <br>
+    </p>
+    <div>
+        <p id="p11" name="pp">안녕하세요</p>
+        <p id="p22" name="pp">돔객체</p>
+        <p id="p33" name="pp">자바스크립트</p>
+    </div>
+    <script>
+        // form태그와 관련된 이벤트
+        // onsubmit, onblur, oninput, ...
+
+        // document.querySelector("#change-img").onclick = function () {
+        document.querySelector(".img-select").onchange = function () {
+            var imgTag = document.querySelector(".img-tag");
+            var selectTag = document.querySelector(".img-select");
+            console.log(selectTag);
+            // console.log(imgTag.src);
+            imgTag.src = "/images/" + selectTag.value;
+        }
+
+        document.querySelector("#btn-child").addEventListener("click", function () {
+            var sectionTag = document.querySelector("#section1");
+            var divTag = sectionTag.querySelector(".area");
+            // console.log(divTag.childNodes);
+            // console.log(divTag.children[0]);
+            // console.log(divTag.children[1]);
+            var input1 = divTag.children[0];
+            var input2 = divTag.children[1];
+
+            input1.value = "Hello";
+            input2.value = "DOM";
+        })
+
+
+        // 고전 이벤트 방식
+        document.querySelector("#textNodeBtn").onclick
+            = function () {
+                // 요소 노드 생성
+                var element = document.createElement("span");
+                // 텍스트 노드 생성
+                var text = document.createTextNode("div 밑으로~~");
+                // 요소 노드에 텍스트 노드 추가
+                element.appendChild(text);
+                // div객체에 요소 노드 추가
+                document.querySelector("#area1").appendChild(element);
+            }
+
+        // 표준 이벤트 방식
+        document.querySelector("#imgNodeBtn").addEventListener("click", function () {
+            // 요소 노드 생성
+            var imgElement = document.createElement("img");
+            imgElement.src = "/images/link.png";
+            imgElement.width = "150";
+            // imgElement.height = "";
+            // div 객체 요소노드 추가
+            document.querySelector("#area2").appendChild(imgElement)
+        });
+
+        document.querySelector("#nodeRemove").onclick
+            = function () {
+                // 영역 선택
+                var areaTag = document.querySelector("#area2");
+                var imgTag = document.querySelector("div img");
+                areaTag.removeChild(imgTag);
+            }
+
+
+        var pTag1 = document.getElementById("p11");
+        console.log(pTag1);
+        console.log("pTag1.innerHTML: " + pTag1.innerHTML);
+        pTag1.innerHTML = "Hello~~~";
+        console.log("pTag1.innerHTML: " + pTag1.innerHTML);
+
+        var pTag2 = document.getElementById("p22");
+        console.log(pTag2);
+        console.log("pTag2.innerHTML: " + pTag2.innerHTML);
+        pTag2.innerHTML = "DOM OBJECT";
+        console.log("pTag2.innerHTML: " + pTag2.innerHTML);
+
+        var pTag3 = document.getElementById("p33");
+        console.log(pTag3);
+        console.log("pTag3.innerHTML: " + pTag3.innerHTML);
+        pTag3.innerHTML = "JavaScript";
+        console.log("pTag3.innerHTML: " + pTag3.innerHTML);
+
+        var pTags = document.getElementsByName("pp");
+        console.log(pTags);
+        console.log(pTags[0]);
+        console.log(pTags[1]);
+        console.log(pTags[2]);
+
+        var pTagNames = document.getElementsByTagName("p");
+        console.log(pTagNames);
+
+        var pTagSelect = document.querySelector("#p33");
+        console.log(pTagSelect);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 객체</title>
+    <style>
+        .area-big {
+            height: 400px;
+            border: 1px solid black;
+            background-color: #ccc;
+        }
+
+        .area {
+            height: 200px;
+            border-radius: 1px solid black;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>자바스크립트 객체</h1>
+    <h3>객체 선언 및 호출</h3>
+    <p>객체는 키 값을 사용하여 value을 식별함<br>
+        value에는 모든 자료형이 올 수 있다.</p>
+    <button id="btn1">실행확인</button>
+    <div id="area1" class="area-big"></div>
+
+    <h3>객체의 키</h3>
+    <p>객체의 키는 모든 문자열을 사용할 수 있다. <br>
+        키로 사용할 수 없는 단어를 키로 사용한 경우에는 무조건 대괄호를 사용해야 객체의 요소에 접근할 수 있다.</p>
+    <button onclick="jsobject2();">실행확인</button>
+    <div id="area2" class="area"></div>
+
+    <h3>객체의 메소드</h3>
+    <p>객체의 value 중 함수 자료형인 value를 메소드라 함.</p>
+    <button id="btn3">실행확인</button>
+    <div id="area3" class="area"></div>
+    <h3>객체와 반복문</h3>
+    <p>객체의 value를 출력할 때에는 단순 for문으로는 사용할 수 없고 for in문(foreach문)을 사용해야 함.</p>
+    <button onclick="jsobject4();">실행확인</button>
+    <div id="area-for" class="area"></div>
+
+    <h3>객체의 in과 with 키워드</h3>
+    <p>
+        in : 객체 내부에 해당 속성이 있는지 확인하는 키워드
+        <br>
+        with : 호출시 코드를 줄여주는 키워드(객체명 생략가능)
+    </p>
+    <label>이름 : <input type="text" id="name"></label><br>
+    <label>국어 : <input type="text" id="kor"></label><br>
+    <label>영어 : <input type="text" id="eng"></label><br>
+    <label>수학 : <input type="text" id="math"></label><br>
+    <button onclick="jsobject5();">실행확인</button>
+    <div id="area5" class="area-big"></div>
+
+    <h3>객체의 키,값 추가와 제거</h3>
+    <p>
+        처음 객체 생성 이후 키,값을 추가하거나 제거하는 것을 동적으로 할 수 있음.
+    </p>
+    <button onclick="jsobject6();">실행확인</button>
+    <div id="area6" class="area"></div>
+
+    <script>
+        document.querySelector("#btn1").addEventListener("click", function () {
+            var divTag1 = document.querySelector("#area1");
+            // var product = new Object();
+            var product = {};   // 같은 의미
+            product.pName = "Dry Mango";
+            product.type = "Pickle";
+            product.ingredient = ["mango", "sugar"];
+            divTag1.innerHTML += "product: " + product.pName + "<br>";
+            divTag1.innerHTML += "type: " + product.type + "<br>";
+            divTag1.innerHTML += "ingredient1: " + product.ingredient[0] + "<br>";
+            divTag1.innerHTML += "ingredient2: " + product.ingredient[1] + "<br>";
+        })
+    </script>
+</body>
+
+</html>
