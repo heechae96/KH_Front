@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. 객체실습문제</title>
+    <style>
+        #print {
+            height: 100px;
+        }
+
+        #div2 {
+            height: 300px;
+            width: 500px;
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> 객체 실습 문제 </h1>
+
+    문제1. <br>
+    다음 입력 버튼을 클릭하면 이름,나이,주소를 prompt로 입력 받은 후 입력 받은 정보를 <br>
+    user 라는 객체에 저장하여라.<br>
+    이 후 출력 버튼을 클릭하면 user 객체 안에 있는 정보를 <br>
+    출력 창에 출력되도록 만들어라.<br>
+    (입력을 받지 않은 상태에서 출력 버튼 클릭시 입력을 먼저 해달라는 알림을 띄우도록 하여라)<br>
+    ex) <br>
+    이름 : OOO <br>
+    나이 : OO세 <br>
+    주소 : XXX XXX XXXX ... <br>
+
+    <fieldset>
+        <legend style="color:red;">출력창</legend>
+        <div id="print">
+
+        </div>
+    </fieldset><br>
+
+    <button onclick="insertMember();">입력</button>
+    <button onclick="printMember();">출력</button>
+
+    <br><br>
+
+    문제2. <br>
+    다음 입력 버튼 클릭시 학생정보를 3명 저장받아(for문 사용) <br>
+    테이블을 생성하여 출력하는 코드를 작성하여라. <br>
+    단, 학생 정보는 객체로 처리하여 저장후 테이블에 입력하고<br>
+    모든 학생 정보는 객체 배열에 저장하여 console.log(objectArr)로 출력시 <br>
+    객체 배열 정보가 console.log에 나와야 함 <br>
+    <div id="div2">
+        <table id="memberInfo" border="1px" width="300px" height="250px">
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+            <tr>
+                <td name="name"></td>
+                <td name="age"></td>
+                <td name="addr"></td>
+            </tr>
+            <tr>
+                <td name="name"></td>
+                <td name="age"></td>
+                <td name="addr"></td>
+            </tr>
+            <tr>
+                <td name="name"></td>
+                <td name="age"></td>
+                <td name="addr"></td>
+            </tr>
+        </table>
+    </div>
+    <labal style="color:red;">학생정보 테이블</labal>
+
+    <button onclick="student();">입력 및 출력</button>
+    <script>
+        // 문제2
+        function student() {
+            // 객체 배열 사용
+            var objectArr = [];
+            for (var i = 0; i < 3; i++) {
+                // 배열에 객체 추가
+                objectArr.push(new Object());
+                // 입력
+                objectArr[i].name = prompt((i+1) + "번째 이름?");
+                objectArr[i].age = prompt((i+1) + "번째 나이?");
+                objectArr[i].addr = prompt((i+1) + "번째 주소?");
+                // 출력
+                document.querySelectorAll("[name=name]")[i].innerHTML = objectArr[i].name;
+                document.querySelectorAll("[name=age]")[i].innerHTML = objectArr[i].age;
+                document.querySelectorAll("[name=addr]")[i].innerHTML = objectArr[i].addr;
+            }
+            console.log(objectArr);
+        }
+
+        // 문제1
+        var user;
+        var str = ""
+        var insertMember = function () {
+            user = new Object();
+            user.name = prompt("이름?");
+            user.age = prompt("나이?");
+            user.addr = prompt("주소?");
+            // console.log(user.name);
+            // console.log(user.age);
+            // console.log(user.addr);
+
+            user.toString = function () {
+                for (var keword in user) {
+                    if (keword != "toString")
+                        str += keword + " : " + user[keword] + "<br>";
+                }
+                return str;
+            }
+            console.log(user.toString);
+        }
+        function printMember() {
+            document.querySelector("#print").innerHTML = user.toString();
+            // document.querySelector("#print").innerHTML += "이름 : " + user.name + "<br>";
+            // document.querySelector("#print").innerHTML += "나이 : " + user.age + "<br>";
+            // document.querySelector("#print").innerHTML += "주소 : " + user.addr + "<br>";
+        }
+    </script>
+</body>
+
+</html>

@@ -77,6 +77,68 @@
             divTag1.innerHTML += "ingredient1: " + product.ingredient[0] + "<br>";
             divTag1.innerHTML += "ingredient2: " + product.ingredient[1] + "<br>";
         })
+
+        var jsobject2 = function () {
+            var divTag2 = document.querySelector("#area2");
+            var objOne = {};
+            objOne.pName = "Dry Mango";
+            objOne["I love you"] = "KH";
+            objOne["I hate you"] = "javaScript";
+            divTag2.innerHTML += "I love you: " + objOne["I love you"] + "<br>";
+            divTag2.innerHTML += "I hate you: " + objOne["I hate you"] + "<br>";
+        }
+
+        document.querySelector("#btn3").onclick = function () {
+            var divTag3 = document.querySelector("#area3");
+            var dog = new Object();
+            dog.name = "백지";
+            dog.bark = function () {
+                divTag3.innerHTML += "왈왈";
+            }
+            dog.eat = function () {
+                divTag3.innerHTML += "와그작와그작";
+            }
+            dog.bark();
+            dog.eat();
+        }
+
+        function jsobject4() {
+            var game = {};
+            game.title = "LOL";
+            game.price = "free";
+            game.language = "한국어";
+            game.supportOS = "AnyPlatform";
+            game.service = true;
+
+            var divTag4 = document.querySelector("#area-for");
+            // divTag4.innerHTML += "title : " + game.title + "<br>";
+            // 키값이 많으면 이런식으로 하기엔 무리임..
+            // for문으로!
+            for (var keyword in game) {
+                divTag4.innerHTML += keyword + " : " + game[keyword] + "<br>";
+            }
+        }
+
+        //
+
+        function jsobject6() {
+            var person = new Object();
+            person.name = "일용자";
+            person.hobby = "낚시,수영,코딩";
+            person.strngth = "자바";
+            person.dream = "웹개발자";
+            person.toString = function(){
+                var str = "";
+                for(var keyword in person){
+                    if(keyword != "toString")
+                        str += keyword + ": " + person[keyword] + "<br>"
+                }
+                return str;
+            }
+            document.querySelector("#area6").innerHTML = person.toString();
+            delete(person.dream);
+            document.querySelector("#area6").innerHTML = person.toString();
+        }
     </script>
 </body>
 
