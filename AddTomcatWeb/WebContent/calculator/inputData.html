@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>계산기 프로그램</title>
+</head>
+<body>
+	<h1>계산기 프로그램</h1>
+	<!-- get방식으로 operating.do URL로 요청(서버에 요청)하면
+		URL에 Key와 Value로 매핑이 되어 값이 전달됨 -->
+	<form action="/AddTomcatWeb/operating.do" method="get">
+		<input type="text" name="first-num">
+		<select name="op-code">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="x">x</option>
+			<option value="/">/</option>
+			<option value="%">%</option>
+		</select>
+		<input type="text" name="second-num">
+		<input type="submit" value="결과보기">
+		<input type="text" value="초기화">
+	</form>
+</body>
+</html>
