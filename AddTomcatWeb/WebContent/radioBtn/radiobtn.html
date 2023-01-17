@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라디오 버튼</title>
+</head>
+<body>
+    <form action="/AddTomcatWeb/radioResult.do" method="get">
+        성별 :
+        <input type="radio" name="gender" id="male" value="M">
+        <label for="male">남자</label>
+        <input type="radio" name="gender" id="female" value="F">
+        <label for="female">여자</label>
+        <br>
+        메일정보 수신여부 : 
+        <label for="yes">
+            <input type="radio" name="chk-mail" id="yes" value="yes">수신
+        </label>
+        <label for="no">
+            <input type="radio" name="chk-mail" id="no" value="no">거부<br>
+        </label>
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+    </form>
+</body>
+</html>
