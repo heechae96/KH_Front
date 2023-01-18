@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 ES6</title>
+</head>
+
+<body>
+    <h1>Javascript ES6</h1>
+    <p>
+        변수의 호이스팅?<br>
+        -> 선언되지 않은 변수를 사용하더라도 자동으로 선언하여 사용하는 현상
+    </p>
+    <script>
+        // let calculator = function (num1, num2) {
+        //     return num1 + num2;
+        // }
+        let calculator = (num1, num2) => num1 + num2;
+        document.write("두 수의 합: " + calculator(112,119) + "<br><br>");
+
+        const sayHelloToFriend = (friend) => {
+            document.write(friend + "안녕");
+        }
+        sayHelloToFriend("일용자야 ");
+
+        // 3단 변화과정
+        // 1. 화살표 함수
+        // let sayHi = () => {
+        //     return "안녕";
+        // }
+        // 2. 화살표 함수를 한 줄로
+        // let sayHi = () => {return "안녕";}
+        // 3. 한 줄로 변경한 화살표 함수를 리턴 생략하고 간단히
+        let sayHi = () => "안녕";
+
+        // 화살표 함수
+        const printMember = () => {
+            console.log("화살표 함수로 변경해봄");
+        }
+
+        // const 사용처
+        const insertNumber = function () {
+            console.log("const로 선언한 변수에 초기화")
+        }
+
+        function exConst() {
+            const number = 1;
+            console.log(number);
+            number = 2; // Assignment to constant variable.
+            console.log(number);
+        }
+
+        function letForLoop() {
+            let i = 5;
+            for (let i = 1; i < 5; i++) {
+                console.log(i);
+            }
+            console.log(i); // i is not defined
+        }
+
+        function exLet() {
+            let number; // undefined
+            console.log(number); // Cannot access 'number'
+            number = 2;
+        }
+
+        function exForLoop() {
+            var i;
+            for (var i = 1; i < 5; i++) {
+                console.log(i);
+            }
+            console.log(i);
+        }
+
+        function varHoisting() {
+            console.log(number);    // 호이스팅되어 undefined
+            var number;
+            number = 1;
+        }
+    </script>
+</body>
+
+</html>

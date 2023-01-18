@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>자바스크립트 객체</title>
+    <title>자바스크립트 JSON</title>
     <style>
         .area-big {
             height: 400px;
@@ -119,24 +119,39 @@
             }
         }
 
-        //
-
         function jsobject6() {
-            var person = new Object();
-            person.name = "일용자";
-            person.hobby = "낚시,수영,코딩";
-            person.strngth = "자바";
-            person.dream = "웹개발자";
-            person.toString = function(){
-                var str = "";
-                for(var keyword in person){
-                    if(keyword != "toString")
-                        str += keyword + ": " + person[keyword] + "<br>"
+            // var person = new Object();
+            // person.name = "일용자";
+            // person.hobby = "낚시,수영,코딩";
+            // person.strength = "자바";
+            // person.dream = "웹개발자";
+            // person.toString = function(){
+            //     var str = "";
+            //     for(var keyword in person){
+            //         if(keyword != "toString")
+            //             str += keyword + ": " + person[keyword] + "<br>"
+            //     }
+            //     return str;
+            // }
+            
+            // object -> json
+            var person = {
+                "name": "일용자",
+                "hobby": "낚시,수영,코딩",
+                "strength": "자바",
+                "dream": "웹개발자",
+                "toString": function () {
+                    var str = "";
+                    for (var keyword in person) {
+                        if (keyword != "toString") {
+                            str += keyword + " : " + person[keyword] + "<br>";
+                        }
+                    }
+                    return str;
                 }
-                return str;
             }
             document.querySelector("#area6").innerHTML = person.toString();
-            delete(person.dream);
+            delete (person.dream);
             document.querySelector("#area6").innerHTML = person.toString();
         }
     </script>

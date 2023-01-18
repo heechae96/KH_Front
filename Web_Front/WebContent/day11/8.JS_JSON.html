@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 JSON</title>
+    <style>
+        table {
+            text-align: center;
+            width: 650px;
+            border: 1px solid black;
+        }
+
+        th,
+        tr,
+        td {
+            border: 1px double black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JSON</h1>
+    <h3>JSON(Javascript Object Notation) : 자바스크립트 객체 표기법</h3>
+    <pre>
+JSON을 사용하면 모든 데이터형을 서버와 주고 받을 수 있다 (사용목적) <br>
+숫자, 문자열, boolean, 배열, 객체, null <br>
+'{' 으로 시작하여 '}' 로 끝나며 그 속에서 데이터를 표기하고 'key : value(값)'쌍으로 구성된다
+{
+    "name" : "이순신",
+    "age" : 27,
+    "birth" : "1990-01-01",
+    "gender" : "남",
+    "marry" : true,
+    "address" : "서울특별시 중구 인사동",
+    "family" : {  
+                "father" : "아버지",
+                "mother" : "어머니",
+                "brother" : "동생"
+            }
+}
+    </pre>
+    <table>
+        <tr>
+            <th>구분값</th>
+            <th>Javascript Object</th>
+            <th>Javascript Object Notation(JSON)</th>
+        </tr>
+        <tr>
+            <td>Boolean</td>
+            <td>var n = new Boolean(true);</td>
+            <td>var n = true;</td>
+        </tr>
+        <tr>
+            <td>Number</td>
+            <td>var n = new Number(3);</td>
+            <td>var n = 3;</td>
+        </tr>
+        <tr>
+            <td>String</td>
+            <td>var s = new String("hello");</td>
+            <td>var s = "hello";</td>
+        </tr>
+        <tr>
+            <td>Array</td>
+            <td>var arrs = new Array();</td>
+            <td>var arrs = [];</td>
+        </tr>
+        <tr>
+            <td>Object</td>
+            <td>var obj = new Object();</td>
+            <td>var obj = {};</td>
+        </tr>
+    </table>
+    <h3>XML, CSV, JSON</h3>
+    XML방식 <br>
+    <pre>
+<notices>
+    <notice id="1" title="All that json" />
+    <notice id="2" title="json class" />
+    <notice id="3" title="more about json" />
+</notices>
+    </pre><br>
+    CSV 방식 <br>
+    <p>
+        1, All that json <br>
+        2, json class <br>
+        3, more about json <br>
+    </p> <br>
+    JSON 방식
+    <pre>
+[
+    {"id" : 1, "title" : "All that json"},
+    {"id" : 2, "title" : "json class"},
+    {"id" : 3, "title" : "more about json"},
+]
+    </pre>
+</body>
+
+</html>
