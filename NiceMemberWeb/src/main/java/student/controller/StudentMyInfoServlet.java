@@ -16,13 +16,13 @@ import student.model.vo.Student;
  * Servlet implementation class StudentMyServlet
  */
 @WebServlet("/student/myInfo.do")
-public class StudentMyServlet extends HttpServlet {
+public class StudentMyInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StudentMyServlet() {
+    public StudentMyInfoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
