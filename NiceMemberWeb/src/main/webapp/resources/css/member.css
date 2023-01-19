@@ -1,0 +1,27 @@
+#member-register {
+	list-style-type : none;
+	padding-left : 0;
+}
+#member-register li label {
+	width : 80px;
+	text-align : left;
+	float : left;
+}
+li {
+	margin : 10px;
+}
+
+form > div {
+	margin-top : 20px;
+	display : flex;
+	justify-content : space-evenly;
+}
+
+form > div > input {
+	width : 150px;
+	height : 40px;
+	text-align : center;
+	border : 1px solid #ccc;
+	background-color : #fafafa;
+	box-shadow : 1px 1px 1px #ccc;
+}

@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>nice member web</title>
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="/resources/css/login.css">
+<!-- <link rel="stylesheet" href="resources/css/login.css"> -->
 </head>
 <body>
 	<div id="container">

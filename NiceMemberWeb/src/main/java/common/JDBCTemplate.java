@@ -21,6 +21,7 @@ public class JDBCTemplate {
 			if (conn == null || conn.isClosed()) {
 				Class.forName(DRIVER_NAME);
 				conn = DriverManager.getConnection(URL, USER, PASSWORD);
+				// 오토커밋 해제
 				conn.setAutoCommit(false);
 			}
 		} catch (SQLException e) {
@@ -30,6 +31,26 @@ public class JDBCTemplate {
 		}
 		// 싱글톤이 적용된 연결 생성 완료
 		return conn;
+	}
+
+	public static void commit(Connection conn) {
+		try {
+			if (conn != null && !conn.isClosed()) {
+				conn.commit();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void rollback(Connection conn) {
+		try {
+			if (conn != null && !conn.isClosed()) {
+				conn.rollback();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
