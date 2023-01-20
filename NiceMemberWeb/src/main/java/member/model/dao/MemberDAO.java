@@ -21,7 +21,7 @@ public class MemberDAO {
 			// 쿼리문 실행
 			// 결과 받기
 			ResultSet rset = pstmt.executeQuery();
-			if(rset.next()) {
+			if (rset.next()) {
 //				result = rset.getInt("M_COUNT");
 				result = rset.getInt(1);
 			}
@@ -36,6 +36,7 @@ public class MemberDAO {
 
 	/**
 	 * 아이디로 조회 DAO
+	 * 
 	 * @param conn
 	 * @param memberId
 	 * @return member
@@ -44,10 +45,10 @@ public class MemberDAO {
 		String query = "SELECT * FROM MEMBER_TBL WHERE MEMBER_ID = ?";
 		Member member = null;
 		try {
-			PreparedStatement pstmt =conn.prepareStatement(query);
+			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, memberId);
 			ResultSet rset = pstmt.executeQuery();
-			if(rset.next()) {
+			if (rset.next()) {
 				member = new Member();
 				member.setMemberId(rset.getString("MEMBER_ID"));
 				member.setMemberPw(rset.getString("MEMBER_PW"));
@@ -65,12 +66,13 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return member;
 	}
 
 	/**
 	 * 회원가입 DAO
+	 * 
 	 * @param conn
 	 * @param member
 	 * @return result
@@ -89,7 +91,56 @@ public class MemberDAO {
 			pstmt.setString(7, member.getMemberAddress());
 			pstmt.setString(8, member.getMemberGender());
 			pstmt.setString(9, member.getMemberHobby());
-			
+
+			result = pstmt.executeUpdate();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	/**
+	 * 회원정보 수정 DAO
+	 * 
+	 * @param conn
+	 * @param member
+	 * @return result
+	 */
+	public int updateMember(Connection conn, Member member) {
+		String query = "UPDATE MEMBER_TBL SET MEMBER_PW = ?, MEMBER_EMAIL = ?, MEMBER_ADDR = ?, MEMBER_PHONE = ?, MEMBER_HOBBY = ? "
+				+ "WHERE MEMBER_ID = ?";
+		int result = -1;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, member.getMemberPw());
+			pstmt.setString(2, member.getMemberEmail());
+			pstmt.setString(3, member.getMemberAddress());
+			pstmt.setString(4, member.getMemberPhone());
+			pstmt.setString(5, member.getMemberHobby());
+			pstmt.setString(6, member.getMemberId());
+			result = pstmt.executeUpdate();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	/**
+	 * 회원탈퇴 DAO
+	 * 
+	 * @param conn
+	 * @param memberId
+	 * @return result
+	 */
+	public int deleteMember(Connection conn, String memberId) {
+		String query = "DELETE FROM MEMBER_TBL WHERE MEMBER_ID = ?";
+		int result = -1;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberId);
 			result = pstmt.executeUpdate();
 			pstmt.close();
 		} catch (SQLException e) {

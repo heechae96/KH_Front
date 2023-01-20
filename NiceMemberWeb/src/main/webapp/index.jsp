@@ -23,6 +23,7 @@
 				</div>
 			</form>
 		</fieldset>
+		<span><a href="/member/enrollView.kh">회원가입</a></span>
 	</div>
 </body>
 </html>

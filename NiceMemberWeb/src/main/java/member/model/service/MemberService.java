@@ -31,7 +31,7 @@ public class MemberService {
 	/**
 	 * 아이디로 조회 Service
 	 * @param memberId
-	 * @return
+	 * @return result
 	 */
 	public Member printOneById(String memberId) {
 		Member member = null;
@@ -50,6 +50,40 @@ public class MemberService {
 			JDBCTemplate.rollback(conn);
 		}
 		
+		return result;
+	}
+
+	/**
+	 * 회원정보 수정 Service
+	 * @param member
+	 * @return result
+	 */
+	public int updateMember(Member member) {
+		int result = -1;
+		Connection conn = JDBCTemplate.getConnection();
+		result = mDao.updateMember(conn, member);
+		if(result > 0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		return result;
+	}
+
+	/**
+	 * 회원탈퇴 Service
+	 * @param memberId
+	 * @return result
+	 */
+	public int deleteMember(String memberId) {
+		int result = -1;
+		Connection conn = JDBCTemplate.getConnection();
+		result = mDao.deleteMember(conn, memberId);
+		if(result > 0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
 		return result;
 	}
 }

@@ -46,7 +46,8 @@ public class LoginServlet extends HttpServlet {
 
 		if (result > 0) {
 			// 성공 페이지
-			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/member/success.jsp");
+			request.setAttribute("memberId", memberId);
+			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/member/loginSuccess.jsp");
 			view.forward(request, response);
 		} else {
 			// 실패 페이지

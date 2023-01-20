@@ -34,7 +34,7 @@
 					<li>
 						<label for="member-gender">성별</label>
 						남 <input type="radio" id="member-gender" name="member-gender" value="M">
-						여 <input type="radio" name="member-gender" value="F"> 
+						여 <input type="radio" name="member-gender" value="F" checked="checked"> 
 					</li>
 					<li>
 						<label for="email">이메일</label>
