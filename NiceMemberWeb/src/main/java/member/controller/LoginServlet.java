@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import member.model.service.MemberService;
 
@@ -46,9 +47,15 @@ public class LoginServlet extends HttpServlet {
 
 		if (result > 0) {
 			// 성공 페이지
-			request.setAttribute("memberId", memberId);
-			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/member/loginSuccess.jsp");
-			view.forward(request, response);
+			// 로그인 유지
+			HttpSession session = request.getSession();
+			session.setAttribute("memberId", memberId);
+			response.sendRedirect("/index.jsp");
+			
+			// 아래와 같은 방법으로는 로그인이 유지되지 않는다
+//			request.setAttribute("memberId", memberId);
+//			RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
+//			view.forward(request, response);
 		} else {
 			// 실패 페이지
 			request.setAttribute("title", "로그인 실패");
