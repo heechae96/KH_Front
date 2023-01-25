@@ -81,7 +81,7 @@ public class EnrollServlet extends HttpServlet {
 		} else {
 			request.setAttribute("title", "회원 가입 실패");
 			request.setAttribute("msg", "회원가입이 완료되지 않았습니다.");
-			request.getRequestDispatcher("/WEB-INF/views/member/error.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(request, response);
 		}
 	}
 

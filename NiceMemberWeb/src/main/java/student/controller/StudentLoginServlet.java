@@ -47,7 +47,7 @@ public class StudentLoginServlet extends HttpServlet {
 		}else {
 			request.setAttribute("title", "로그인 실패..");
 			request.setAttribute("msg", "아이디와 비밀번호를 다시 확인해주세요");
-			request.getRequestDispatcher("/WEB-INF/views/student/error.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(request, response);
 		}
 	}
 

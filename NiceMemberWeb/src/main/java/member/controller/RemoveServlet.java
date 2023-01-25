@@ -34,11 +34,12 @@ public class RemoveServlet extends HttpServlet {
 		MemberService mService = new MemberService();
 		int result = mService.deleteMember(memberId);
 		if (result > 0) {
-			response.sendRedirect("/index.jsp");
+//			response.sendRedirect("/index.jsp");
+			response.sendRedirect("/member/logout.kh");
 		} else {
 			request.setAttribute("title", "회원 탈퇴 실패");
 			request.setAttribute("msg", "회원탈퇴가 완료되지 않았습니다");
-			request.getRequestDispatcher("/WEB-INF/views/member/error.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(request, response);
 		}
 	}
 
