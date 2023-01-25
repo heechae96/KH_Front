@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query filter() 메소드3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <input type="checkbox" name="check" value="1" checked/> 1번
+    <input type="checkbox" name="check" value="2" checked/> 2번
+    <input type="checkbox" name="check" value="3" /> 3번
+    <input type="checkbox" name="check" value="4" /> 4번
+    <br />
+    <input type="button" value="체크 버튼 확인" onclick="checkBtn()" />
+    <br><br>
+    <script>
+        var checkBtn = () => {
+            // jQuery
+            var checkboxes = $("[name=check]").filter(":checked");
+            
+            // DOM
+            var checkTags = document.querySelectorAll("[name=check]:checked");
+            console.log("DOM");
+            checkTags.forEach((item, index) => {
+                console.log(item.value + "번");
+            });
+            
+            // 자바스크립트
+            console.log("자바스크립트")
+            for(let i=0; i<checkboxes.length; i++){
+                console.log(checkboxes[i].value + "번");
+            }
+            
+            // jQuery
+            console.log("jQuery");
+            checkboxes.each(function(index, item){
+                console.log(item.value + "번");
+            });
+
+            console.log("jQuery");
+            $.each(checkboxes, function(index, item){
+                console.log(item.value + "번");
+            });
+
+        }
+        
+    </script>
+</body>
+
+</html>

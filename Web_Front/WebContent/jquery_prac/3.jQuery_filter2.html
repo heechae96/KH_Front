@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery filter() 메소드2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>구분</th>
+            <th>A</th>
+            <th>B</th>
+        </tr>
+        <tr>
+            <td>가</td>
+            <td>10</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>나</td>
+            <td>20</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>계</td>
+            <td>30</td>
+            <td>30</td>
+        </tr>
+    </table>
+    <input type="button" value="[가]색 변경" onclick="click1();" />
+    <input type="button" value="[나]색 변경" onclick="click2();" />
+    <input type="button" value="[A]색 변경" onclick="click3();" />
+    <input type="button" value="[B]색 변경" onclick="click4();" />
+    <script>
+        click1 = function () {
+            $("td").css("color", "black");
+            // $("td:eq(1)").css("color", "red");
+            // $("td:eq(2)").css("color", "red");
+            $("tr").eq(1).children("td").not(":first-child").css("color", "red");
+        }
+
+        var click2 = () => {
+            $("td").css("color", "black");
+            // $("td:eq(4)").css("color", "red");
+            // $("td:eq(5)").css("color", "red");
+            $("tr:eq(2)").children("td").not(":first-child").css("color", "red");
+        }
+
+        function click3(){
+            $("td").css("color", "black");
+            $("td:nth-child(2)").css("color", "red");
+        }
+
+        function click4(){
+            $("td").css("color", "black");
+            $("td:nth-child(3)").css("color", "red");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        .ancestors * {
+            display: block;
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        .descendants * {
+            display: block;
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        .siblings * {
+            display: block;
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery 객체 탐색(jQuery Traversing)</h1>
+    <p>
+        - jQuery Traversing은 jQuery의 순회(탐색) <br>
+        - 특정요소를 찾거나 필터링 하는 작업이며 대부분 선택자(selector)를 사용하지만 1차적으로 선택자에 의해서 찾은 요소들을 다시 2차 필터링 하거나 새로운 요소를 추가할 때에는 Traverse
+        관련 메소드를 사용함.
+    </p>
+
+    <h3>filtering 메소드</h3>
+    <p>
+        first() : 선택된 요소 중 가장 첫번째 요소를 리턴<br>
+        last() : 선택된 요소 중 가장 마지막 요소를 리턴<br>
+        eq() : 인덱스 번호와 일치하는 요소 리턴(0부터 시작)
+    </p>
+    <h2>Header-0</h2>
+    <h2>Header-1</h2>
+    <h2>Header-2</h2>
+    <h2>Header-3</h2>
+    <p>
+        filter() : 인자값과 일치하는 요소만 리턴
+        <br>
+        - $(selector).filter(selector); <br>
+        - $(selector).filter(function() {}) <br>
+        not() : 인자값과 일치하지 않는 요소 리턴
+    </p>
+    <h4 class="h">header-0</h4>
+    <h4 class="h">header-1</h4>
+    <h4 class="hh">header-2</h4>
+    <h4 class="hh">header-3</h4>
+    <hr>
+    <h3>Ancestors 메소드</h3>
+    <p>
+        parent() : 선택된 요소의 바로 위 상위 요소만 리턴<br>
+        parents() : 선택된 요소의 모든 상위 요소 리턴<br>
+        parentsUntil(인자) : 선택된 요소(초과)부터 인자요소(미만)까지 범위요소 리턴<br>
+    </p>
+    <div class="ancestors">
+        <div>
+            div(great-grandparent)
+            <ul>
+                ul(grandparent)
+                <li>
+                    li(direct parent)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+        <div>
+            div(gandparent)
+            <p>
+                p(direct parent)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+    <h3>Descendants 메소드 : 선택된 요소의 하위 요소들을 선택할 수 있는 메소드</h3>
+    <p>
+        children([인자])
+        <br>1. 선택된 요소의 모든 자손(다음레벨) 객체를 리턴 <br>
+        2. 선택된 요소의 인자와 일치하는 자손(다음레벨) 객체 리턴 <br>
+        find(인자) : 선택된 요소의 인자와 일치하는 모든 후손(모든 레벨) 객체 리턴 <br>
+    </p>
+    <div id="div1" class="descendants" style="width:480px;">
+        div(current element)
+        <p class="child1">
+            p(child)
+            <span>
+                span(grandchild)
+            </span>
+        </p>
+        <p class="child2">
+            p(child)
+            <span></span>
+        </p>
+        <h3>Siblings 메소드</h3>
+        <p>
+            같은 레벨에 있는 요소(형제)를 선택할 수 있는 메소드 <br><br>
+            siblings([인자]) <br>
+            1. 선택된 요소와 같은 레벨(형제)에 있는 요소 리턴<br>
+            2. 선택된 요소의 같은 레벨(형제) 중 인자와 일치하는 요소 리턴(자신 제외)<br>
+            next() : 선택된 요소의 같은 레벨(형제)들 중 선택된 요소의 다음 한개 요소 리턴 <br>
+            nextAll() : 선택된 요소의 같은 레벨(형제)들 중 선택된 다음의 모든 요소를 리턴 <br>
+            nextUntil : 선택된 요소의 같은 레벨(형제)들 중 인자까지 범위의 모든 요소를 리턴 <br>
+            prev() : 선택된 요소의 같은 레벨(형제)들 중 선택된 요소 이전의 한 개 요소 리턴 <br>
+            prevAll() : 선택된 요소의 같은 레벨(형제)들 중 선택된 요소 이전의 모든 요소를 리턴 <br>
+            prevUntil(인자) : 선택된 요소의 같은 레벨(형제)들 중 인자까지 범위의 모든 요소를 리턴 <br>
+        </p>
+        <div class="siblings">
+            <div>
+                div(parent)
+                <p>p tag</p>
+                <span>span tag</span>
+                <h2 id="hTag-2">h2</h2>
+                <h3>h3</h3>
+                <h4>h4</h4>
+                <h5>h5</h5>
+                <h6>h6</h6>
+                <p>p tag</p>
+            </div>
+        </div>
+        <script>
+            var h2Tags = document.querySelectorAll("h2");
+            console.log($("h2"));
+            console.log(h2Tags[0]);
+            console.log($("h2").eq(0));
+            console.log($("h2").first());
+            console.log($("h2").last());
+
+            // filter()메소드
+            // document.querySelectorAll("h4").forEach((index, item) => {
+            //     console.log("index : " + index + ", item : " + item)
+            // });
+            var h4Tags = $("h4").filter(function (index, item) {
+                // // console.log("index : " + index + ", item : " + item)
+                // if(index % 2 == 0){
+                //     console.log(item);
+                //     // item.innerHTML = "changed";
+                //     $(item).html("changed");
+                //     // item.style.backgroundColor = "red";
+                //     $(item).css("background-color", "red");
+                // }
+                return index % 2 != 0;
+            });
+            h4Tags.css("background-color", "gold");
+
+            // parent(), parents(), parentsUntil(인자)
+            console.log($("span").eq(0));
+            console.log($("span:eq(0)"));
+            $("span").eq(0).css("border", "1px solid blue")
+            $("span:eq(0)").css("border", "1px solid red");
+            $("span:eq(0)").parent().css("border", "2px solid blue");
+            document.querySelector("span:first-child").parentElement.style.borderColor = "green";
+            // css is not a function
+            // console.log($("span")[0].css("border", "black"));
+
+            $("span:eq(0)").parent().parent().css("border", "2px dashed green");
+            $("span:eq(0)").parent().parent().parent().css("border", "2px dotted gold");
+            console.log($("span:eq(0)").parents("ul"));
+            $("span:eq(0)").parents("li").css("background-color", "pink");
+            // 기준인 div는 포함이 안된다!
+            $("span:eq(1)").parentsUntil("div").css("border", "3px solid brown");
+
+            $("#div1").children(".child1").css("border", "2px solid red");
+            $("#div1").find("span").css("border", "2px solid red");
+            // console.log(document.querySelector("#div1 .child1"));
+            document.querySelector("#div1 .child1").style.borderStyle = "dotted";
+            document.querySelector("#div1 .child1").style.borderColor = "purple";
+
+
+            // jQuery 안쓰는 이유. CSS 충돌 발생
+            // -> 인라인 스타일로 설정이 되어버림
+
+            // siblings() 메소드
+            // 기준 h5는 포함이 안된다
+            $("h5").siblings("p").css("border", "2px solid gold");
+            // $("h5").next().css("border", "2px dotted red");
+            // $("h5").nextAll().css("border", "2px dotted red");
+            // $("h5").prev().css("border", "2px dotted red");
+            // $("h5").prevAll().css("border", "2px dotted green");
+            $("h5").nextUntil("p").css("border", "3px dashed blue");
+            $("h5").prevUntil("p").css("border", "3px dashed red");
+        </script>
+</body>
+
+</html>

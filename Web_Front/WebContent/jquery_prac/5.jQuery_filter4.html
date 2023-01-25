@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query filter() 메소드4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <select>
+        <option value="1" selected="selected">1번</option>
+        <option value="2">2번 </option>
+        <option value="3">3번 </option>
+    </select>
+    <br />
+    <input type="button" value="Select 버튼 확인" onclick="selectBtn()" />
+    <br><br>
+    <script>
+        const selectBtn = () => {
+            var selectedTag = $("option").filter(":selected");
+            
+            // 객체이기 때문에 .value하면 안된다!
+            // console.log(selectedTag.value + "번");
+            
+            console.log(selectedTag.val() + "번");
+            console.log(selectedTag.html());
+            
+            // DOM으로 접근해서 가능
+            console.log(selectedTag[0].value + "번");
+            console.log(selectedTag[0].innerHTML);
+        }
+    </script>
+</body>
+
+</html>

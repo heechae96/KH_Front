@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selector</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>text1</h1>
+    <h1 id="text">text2</h1>
+    <h1 name="text">text3</h1>
+    <h1 class="text">text4</h1>
+    <script>
+        // $("h1").eq(0).css("color", "red");
+        $("h1:eq(0)").css("color", "red");
+        $("#text").css("color", "orange");
+        $("[name=text]").css("color", "yellow");
+        $(".text").css("color", "green");
+    </script>
+</body>
+
+</html>
