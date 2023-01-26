@@ -12,6 +12,13 @@ import notice.model.vo.Notice;
 
 public class NoticeDAO {
 
+	/**
+	 * 공지사항 등록 DAO
+	 * 
+	 * @param conn
+	 * @param notice
+	 * @return result
+	 */
 	public int insertNotice(Connection conn, Notice notice) {
 		String query = "INSERT INTO NOTICE_TBL VALUES(SEQ_NOTICENO.NEXTVAL, ?, ?, ?, DEFAULT, DEFAULT)";
 		int result = -1;
@@ -26,9 +33,15 @@ public class NoticeDAO {
 			e.printStackTrace();
 		}
 		return result;
-		
+
 	}
 
+	/**
+	 * 공지사항 목록 조회 DAO
+	 * 
+	 * @param conn
+	 * @return nList
+	 */
 	public List<Notice> selectAll(Connection conn) {
 		String query = "SELECT * FROM NOTICE_TBL ORDER BY NOTICE_NO";
 		List<Notice> nList = null;
@@ -37,7 +50,7 @@ public class NoticeDAO {
 			ResultSet rset = stmt.executeQuery(query);
 			// 후처리
 			nList = new ArrayList<Notice>();
-			while(rset.next()) {
+			while (rset.next()) {
 				Notice notice = new Notice();
 				notice.setNoticeNo(rset.getInt("NOTICE_NO"));
 				notice.setNoticeSubject(rset.getString("NOTICE_SUBJECT"));
@@ -53,6 +66,59 @@ public class NoticeDAO {
 			e.printStackTrace();
 		}
 		return nList;
+	}
+
+	/**
+	 * 공지사항 상세조회 DAO
+	 * 
+	 * @param conn
+	 * @param noticeNo
+	 * @return notice
+	 */
+	public Notice selelctOneByNo(Connection conn, int noticeNo) {
+		String query = "SELECT * FROM NOTICE_TBL WHERE NOTICE_NO = ?";
+		Notice notice = null;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, noticeNo);
+			ResultSet rset = pstmt.executeQuery();
+			// 후처리
+			if (rset.next()) {
+				notice = new Notice();
+				notice.setNoticeNo(rset.getInt("NOTICE_NO"));
+				notice.setNoticeSubject(rset.getString("NOTICE_SUBJECT"));
+				notice.setNoticeContent(rset.getString("NOTICE_CONTENT"));
+				notice.setNoticeWriter(rset.getString("NOTICE_WRITER"));
+				notice.setNoticeDate(rset.getTimestamp("NOTICE_DATE"));
+				notice.setViewCount(rset.getInt("VIEW_COUNT"));
+			}
+			rset.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return notice;
+	}
+
+	/**
+	 * 공지사항 삭제 DAO
+	 * @param conn
+	 * @param noticeNo
+	 * @return
+	 */
+	public int deletNotice(Connection conn, int noticeNo) {
+		String query = "DELETE FROM  NOTICE_TBL WHERE NOTICE_NO = ?";
+		int result = -1;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, noticeNo);
+			result = pstmt.executeUpdate();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return result;
 	}
 
 }
