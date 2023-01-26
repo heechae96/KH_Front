@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 조상/자손/후손</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        .test * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 3px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test">
+        <div>
+            난 부모
+            <ul>
+                <li>당근</li>
+                <li>김치</li>
+                <li>오이</li>
+                <li>양배추</li>
+                <li>파푸리카</li>
+            </ul>
+            <p id="pp">
+                <span id="pica">피카츄</span>
+                <span>파이리</span>
+                <span>꼬부기</span>
+            </p>
+            <p>난 뭐게요?</p>
+        </div>
+    </div>
+    <br>
+    문제1. 아래의 버튼을 클릭하였을때 p태그(id=pp)를 중점으로 당근을 <br>
+    선택하여 빨간색 배경으로 만들어 보아라.
+    <button onclick="action1();">작동1</button><br><br>
+
+    문제2. 아래의 버튼을 클릭하였을때 ul태그를 중점으로 파이리를 <br>
+    선택하여 빨간색 배경으로 만들어 보아라.
+    <button onclick="action2();">작동2</button><br><br>
+
+    문제3. 아래의 버튼을 클릭하였을때 span 태그(id="pica")를 중점으로 <br>
+    ul과 p태그를 감싸고 있는 div 의 테두리를 파란색으로 만들어 보아라.
+    <button onclick="action3();">작동3</button><br><br>
+
+
+    문제4. 아래의 버튼을 클릭하였을때 div태그(class="test")를 이용하여<br>
+    당근,김치,오이,양배추,파푸리카가 console.log에 출력 되도록 <br>
+    만들어 보아라. (JS 에서 innerHTML은 jQuery에선 html() 입니다.)
+    <button onclick="action4();">작동4</button><br><br>
+
+    <script>
+        var action1 = function(){
+            $("#pp").prev().children().eq(0).css("background-color", "red");
+            // $("pp").siblings("ul").children().first().css("background-color", "red");
+        }
+
+        var action2 = function(){
+            $("ul").next().children().eq(1).css("background-color", "red");
+        }
+
+        var action3 = function(){
+            $("#pica").parent().parent().css("border", "1px solid blue");
+            // $("#pica").parents("div").eq(0).css("border", "1px solid blue");
+        }
+
+        var action4 = function(){
+            var arr = $(".test").find("li");
+            
+            // each() 메소드는 배열을 for문 돌림
+            // item은 DOM Element, 이후에 메소드가 안나오고 속성
+            arr.each(function(index, item){
+                console.log(item.innerHTML);
+            });
+            
+            for(let i=0; i<arr.length; i++){
+                // console.log(arr[i].innerHTML);  // DOM Element로 속성으로 사용
+                // console.log(arr.eq(i).html());  // jQuery객체에서 jQuery사용
+                console.log(arr.eq(i).text());
+            }
+
+            // $(this)는 아직 안배웠음..
+            // $(".test").find("li").each(function(index, item){
+            //     console.log($(this).text());
+            // });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 객체 조작</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        .intro {
+            font-size: 2em;
+            color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            console.log($("h3"));
+            $("h3").each(function (index, item) {
+                if ($(item).is(".select")) {
+                    $(item).css("color", "red");
+                }
+            });
+
+            // document.querySelector("#btn1").addEventListener("click", () =>{
+            //     alert("test");
+            // });
+
+            $("#btn1").on("click", () => {
+                $("#p2").addClass("intro");
+            });
+
+            $("#btn2").on("click", () => {
+                $("#p2").removeClass("intro");
+            });
+
+            $("#btn-1").on("click", () => {
+                console.log($("#img-tag").attr("src"));
+            });
+
+            $("#btn-2").on("click", () => {
+                console.log($("#img-tag").attr("height"));
+                console.log($("#img-tag").attr("width"));
+            });
+
+            $("#btn-3").on("click", () => {
+                $("#img-tag").attr("height", "400");
+                $("#img-tag").attr("width", "500");
+            });
+
+            $("#btn-4").on("click", () => {
+                $("#img-tag").attr("src", "../images/mic.jpg");
+            });
+            // DOM으로
+            // document.querySelector("#btn-4").addEventListener("click", () =>{
+            //     document.querySelector("#img-tag").src = "../images/top.jpg";
+            // });
+
+            $("#btn-5").on("click", () => {
+                $("#img-tag").removeAttr("src");
+                // $("#img-tag").attr("src", "");
+            });
+
+            $("#btn-6").on("click", () => {
+                console.log(document.querySelector("#h1-hello").innerHTML); // 태그를 취급
+                console.log(document.querySelector("#h1-hello").innerText);
+                console.log($("#h1-hello").html()); // 태그를 취급
+                console.log($("#h1-hello").text());
+            });
+
+            $("#btn-7").on("click", () => {
+                $("#div-html1").html("<h1>text</h1>");  // 태그를 취급
+                $("#div-text1").text("<h1>text</h1>");
+            });
+        })
+
+        // $(document).ready(function(){
+        //     console.log($("h3"));
+        // });
+
+        // document.addEventListener("DOMContentLoaded", () =>{
+        //     console.log($("h3"));
+        // });
+
+        // window.onload = function(){
+        //     console.log($("h3"));
+        // }
+
+        const getList = () => {
+            // console.log($("li"));
+            var liTags = $("li");
+
+            // 반복문 3가지
+            $.each(liTags, function (index, item) {
+                console.log("index : " + index);
+                console.log("item.innerHTML : " + item.innerHTML);
+                console.log("$(item).html() : " + $(item).html());
+            });
+
+            /*
+            $("li").each(function(index, item){
+
+            });
+            */
+            /*
+            $.each($("li"), function(index, item){
+
+            });
+            */
+        }
+    </script>
+    <h1>객체조작</h1>
+    <h3>each메소드</h3>
+    <p>배열을 관리하는 for in문과 비슷한 메소드로 객체나 배열의 요소를 검사하는 메소드
+        <br>
+        index : 객체, 배열의 순번 <br>
+        item : 값을 보관하는 변수(객체), "."으로 접근
+        <br><br>
+        사용법 : $.each(배열이름, function(index,item) {});
+        <br>
+        지정한 배열을 0번부터 자동으로 불러와 순번을 index에 넣고 값을 item에 넣는 메소드 <br>
+        item의 값은 개체(element) <br>
+        단, item은 jQuery객체 형태로 넘어오는 것이 아니기 때문에 jQuery 메소드를 사용하지 못함.
+    </p>
+    <button onclick="getList()">각 목록 가져오기</button>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Donut</li>
+    </ul>
+    <h3>is메소드</h3>
+    <p>선택된 요소의 범위 내에 인자와 동일한 요소가 있는지 찾아서 있으면 true, 없으면 false 리턴</p>
+    <h3 class="select">test</h3>
+    <h3>test</h3>
+    <h3>test</h3>
+    <h3 class="select">test</h3>
+    <br>
+    <h3>addClass/removeClass 메소드</h3>
+    <h1>This is a heading</h1>
+    <p id="p1" class="intro">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+    <button id="btn1">Add a class </button>
+    <button id="btn2">Remove a class </button>
+    <h3>attr/removeAttr 메소드</h3>
+    <img id="img-tag" src="../images/link.png" width="400" height="300" /> <br>
+    <button id="btn-1">파일 경로</button>
+    <button id="btn-2">파일의 너비,높이</button>
+    <button id="btn-3">사이즈 늘리기</button>
+    <button id="btn-4">src 변경</button>
+    <button id="btn-5">src 삭제</button>
+    <h3>html/text 메소드</h3>
+    <p>
+        html() : 객체 내부의 글자와 관련된 기능 수행(HTML태그 조작) <br>
+        태그 내부에 글자와 태그 모두를 가져옴 <br>
+        text() : 태그 내부에 글자만 가져옴 <br>
+    </p>
+    <h1 id="h1-hello">
+        <p>Hello??</p>
+    </h1>
+    <button id="btn-6">출력확인</button>
+    <br><br>
+    <div id="div-html1"></div>
+    <div id="div-text1"></div>
+    <div></div>
+    <button id="btn-7">html/text 출력확인</button>
+</body>
+
+</html>
