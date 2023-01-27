@@ -21,9 +21,23 @@
 
 <body>
     <script>
-        $(function () {
+        // $(function () {});
+        const add = () => {
+            let title = $("[name = title]").val();
+            let content = $("[name = content]").val();
+            let owner = $("[name = owner]").val();
+            
+            $("table").append(
+                "<tr><td>" + title + "</td ><td>" 
+                    + content + "</td><td>" 
+                        + owner +"</td></tr>"
+            );
 
-        });
+            // 초기화
+            $("[name = title]").val("");
+            $("[name = content]").val("");
+            $("[name = owner]").val("");
+        }
     </script>
     제목 : <input type="text" name="title"><br>
     내용 : <input type="text" name="content"><br>

@@ -11,9 +11,15 @@
 
 <body>
     <script>
-        $(function () {
-
-        });
+        const addFile = () => {
+            $("input").last().after("<input type = 'file'>");
+        }
+        const delFile = function(){
+            var inputLength = $("[type=file]").length;
+            if(inputLength > 1){
+                $("input").last().remove();
+            }
+        }
     </script>
     <div>
         <input type="file">

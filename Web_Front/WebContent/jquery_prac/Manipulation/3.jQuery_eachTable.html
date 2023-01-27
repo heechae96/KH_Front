@@ -21,6 +21,23 @@
 <body>
     <script>
         $(function () {
+            var color = "";
+            $("#img2").on("click", function(){
+                color = $("#img2").css("background-color");
+            });
+
+            $("#img1").on("click", function(){
+                color = $("#img1").css("background-color");
+            });
+
+            // [id $= th] : id중에 th로 끝나는것.
+            $("[id $= th]").on("click", function(){
+                $(this).css("background-color", color);
+            });
+
+            $("#btn1").on("click", function(){
+                $("[id $= th]").css("background-color", "white");
+            });
 
         });
     </script>

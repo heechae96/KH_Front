@@ -38,10 +38,55 @@
 
 <body>
     <script>
+        // window.onload = function(){}
+        // document.addEventListener("DOMContentLoaded", function(){})
+        // $(document).ready(function(){})
         $(function () {
             $("#btn2").on("click", () => {
-                // $("tr").children().eq(0).addClass("name");
-                console.log($("tr").find("td").first());
+                // title
+                $("th").addClass("title");
+                
+                // name
+                // #1.
+                // $("tr").eq(1).children().eq(0).addClass("name");
+                // $("tr").eq(2).children().eq(0).addClass("name");
+                // $("tr").eq(3).children().eq(0).addClass("name");
+                // $("tr").eq(4).children().eq(0).addClass("name");
+                
+                // #2.
+                // $("td").eq(0).addClass("name");
+                // $("td").eq(3).addClass("name");
+                // $("td").eq(6).addClass("name");
+                // $("td").eq(9).addClass("name");
+
+                // #3.
+                var names = $("td").filter(function(index){
+                    return index % 3 == 0;
+                });
+                // console.log(names);
+                names.addClass("name");
+
+                // age
+                var ages = $("td").filter(function(index){
+                    return index % 3 == 1;
+                });
+                ages.addClass("age");
+
+                // addr
+                var addrs = $("td").filter(function(index){
+                    return index % 3 == 2;
+                });
+                addrs.addClass("addr");
+
+                // reset
+                $("#reset").on("click", function(){
+                    // $("tr").first().children().removeClass("title");
+                    $("th").removeClass("title");
+                    $("td:nth-of-type(3n+1)").removeClass("name");
+                    $("td:nth-of-type(3n+2)").removeClass("age");
+                    $("td:nth-of-type(3n)").removeClass("addr");
+                });
+
             });
         });
     </script>
