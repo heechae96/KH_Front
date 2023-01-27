@@ -2,6 +2,7 @@ package notice.model.vo;
 
 import java.sql.Timestamp;
 
+// notice.model.service의 selectAll때문에 생성
 public class Notice {
 	private int noticeNo;
 	private String noticeSubject;
@@ -19,6 +20,14 @@ public class Notice {
 		this.noticeSubject = noticeSubject;
 		this.noticeContent = noticeContent;
 	}
+	
+	public Notice(int noticeNo, String noticeSubject, String noticeContent) {
+		super();
+		this.noticeSubject = noticeSubject;
+		this.noticeContent = noticeContent;
+		this.noticeNo = noticeNo;
+	}
+
 
 	public Notice(int noticeNo, String noticeSubject, String noticeContent, String noticeWriter, Timestamp noticeDate,
 			int viewCount) {

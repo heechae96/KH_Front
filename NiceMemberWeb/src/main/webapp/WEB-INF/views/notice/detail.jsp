@@ -34,7 +34,7 @@
 		</li>
 	</ul>
 	<a href="/notice/list">목록으로 이동</a>
-	<a href="#">수정하기</a>
+	<a href="/notice/modify?notice-no=${notice.noticeNo }">수정하기</a>
 	<a href="javascript:void(0)" onclick="deleteCheck();">삭제하기</a>
 	<script>
 		const deleteCheck = function(){

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
 import notice.model.vo.Notice;
+import notice.model.vo.PageData;
 
 /**
  * Servlet implementation class NoticeListServlet
@@ -32,8 +33,18 @@ public class NoticeListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NoticeService nService = new NoticeService();
-		List<Notice> nList = nService.selectAll();
+		int currentPage = 1;
+		if(request.getParameter("page") != null) {
+			currentPage = Integer.parseInt(request.getParameter("page"));
+		}
+//		String strCurr = request.getParameter("page") != null ? request.getParameter("page") : "1";
+//		int currentPage = Integer.parseInt(strCurr);
+//		List<Notice> nList = nService.selectAll(currentPage);
+		PageData pd = nService.selectAll(currentPage);
+		List<Notice> nList = pd.getnList();
+		String pageNavigator = pd.getPageNavigator();
 		request.setAttribute("nList", nList);
+		request.setAttribute("pageNavi", pageNavigator);
 		request.getRequestDispatcher("/WEB-INF/views/notice/list.jsp").forward(request, response);
 	}
 
