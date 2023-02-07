@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<script>
+    $(function () {
+        $("tr").on("click", function () {
+            // console.log(this);
+            // console.log($(this));
+            // console.log(this.children());
+            // 제이쿼리 객체로 가져와야 접근이 가능함..
+            // console.log($(this).children());
+            // $("#s1").text($(this).children().eq(0).text());
+            // $("#s2").text($(this).children().eq(1).text());
+            // $("#s3").text($(this).children().eq(2).text());
+            // $("#s4").text($(this).children().eq(3).text());
+            var tdTags = $(this).children();
+            tdTags.each(function (index, item) {
+                // $("#s"+(index+1)).text($(item).text());
+                $("span").eq(index).text($(item).text());
+            });
+            $("tr").css("background-color", "white");
+            $(this).css("background-color", "red");
+        })
+    });
+</script>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>조회수</th>
+            <th>작성일자</th>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3번제목</td>
+            <td>0</td>
+            <td>11-07-13</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2번제목</td>
+            <td>0</td>
+            <td>11-07-12</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1번제목</td>
+            <td>0</td>
+            <td>11-07-11</td>
+        </tr>
+    </table>
+    선택된 행 : <span id="s1"></span> / <span id="s2"></span> / <span id="s3"></span>
+    / <span id="s4"></span>
+</body>
+
+</html>
