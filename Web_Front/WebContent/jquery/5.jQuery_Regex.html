@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        .area {
+            background-color: lightgray;
+            border: 1px solid black;
+            height: 150px;
+        }
+
+        button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            $("#btn-regex1").on("click", function () {
+                var target = "javascript jquery ajax";
+                /* /원하는 단어/ */
+                var regExp = /script/;
+                var str = "";
+                // 있으면 true 없으면 false
+                str += regExp.test(target) + "<br>";
+                // 매칭되는 항목 반환
+                str += regExp.exec(target) + "<br>";
+                // 해당 문자열 변환
+                str += target.replace(regExp, "스크립트") + "<br>";
+                $("#area-tag1").html(str);
+            });
+
+            $("#btn-flag").on("click", function () {
+                var target = "javascript jquery Ajax";
+                var target2 = "javascript\njQuery\nAjax";
+                // 하나만 검출
+                // var regExp = /a/;
+                // 다수 검출
+                // var regExp = /a/g;
+                // 다수 검출 + 대소문자 구별 x
+                var regExp = /a/gi;
+                var area = $("#area-tag2");
+                var str = "";
+                str += target.replace(regExp, "($&)") + "<br>";
+                str += target2.replace(regExp, "($&)");
+                area.html(str);
+            })
+
+            $("#btn-ank").on("click", function () {
+                var target = "JavaScript\njQuery\nAjax";
+                // 대소문자 구분없이 j로 시작하는 문자 검출
+                // (J)avaScript (j)Query Ajax
+
+                // /j/gi: (J)avaScript (j)Query A(j)ax
+                // /^j/gi: (J)avaScript jQuery Ajax
+
+                // j로 시작
+                var regExp = /^j/gim;
+                // ipt로 끝
+                var regExp2 = /ipt$/gim;
+                var area = $("#area-tag3");
+                var str = "";
+                str += target.replace(regExp, "($&)") + "<br>";
+                str += target.replace(regExp2, "($&)") + "<br>";
+                area.html(str);
+            });
+
+            $("#btn-meta").on("click", function () {
+                var target = "Javascript jQuery Ajax";
+                // 대괄호 안에 쓰면 각 각 검출
+                // [a-z] : a부터z까지 각 각 검출
+                // [a-zA-Z] : a부터z까지 A부터Z까지 각 각 검출
+                // 대괄호 안에 ^를 쓰면 ^뒤에는 빼고 검출(제외)
+                // [^a-z] : 소문자 제외하고 검출
+                var regExp = /[^ajvx]/g;
+                var areaTag = $("#area-tag4");
+                var str = "";
+                str += target.replace(regExp, "($&)");
+                areaTag.html(str);
+            })
+
+            $("#btn-extra-btn").on("click", function () {
+                var target = $("#personal-number").val();
+                // - 기준으로 앞뒤로 숫자를 추가해도 정상입력..
+                // 앵커 문자 필요
+                // - 년월일 이런 유효성 검사는 불가..
+                // var regExp = /^\d{6}-\d{7}$/;
+
+                //                 0을 입력하면 1부터9 또는 1을 입력하면 0부터2
+                var regExp = /^\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])-[1-4]\d{6}$/;
+                if (regExp.test(target)) {
+                    alert("정상입력");
+                } else {
+                    alert("비정상입력");
+                }
+            });
+
+            $("#btn-hangeul").on("click", function () {
+                var target = $("#hangeul").val();
+                var regExp = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+                if (regExp.test(target)) {
+                    alert("한글입력함");
+                } else {
+                    alert("한글 없음");
+                }
+            });
+        })
+    </script>
+    <h1>정규표현식</h1>
+    <p>
+        1. 특정한 규칙을 가진 문자열의 집합을 표현하는데 사용하는 형식 언어
+        <br>
+        2. 주로 프로그래밍 언어나 텍스트 에디터 등에서 문자열의 검색과 치환을 위한 용도로 사용됨
+        <br>
+        3. 입력한 문자열에서 특정한 조건을 표현할 경우 다소 복잡할 수 있지만 표현식을 숙지하면
+        매우 간단하게 표현할 수 있음.
+    </p>
+    <h3>정규표현식의 객체 생성</h3>
+    <button id="btn-regex1">확인하기</button>
+    <div id="area-tag1" class="area"></div>
+    <h3>플래그 문자</h3>
+    <p>
+        g : 전역비교를 수행<br>
+        i : 대소문자 구분하지 않음<br>
+        m : 여러줄 검사 수행(앵커문자와 같이 사용)
+    </p>
+    <button id="btn-flag">플래그 문자 확인</button>
+    <div id="area-tag2" class="area"></div>
+    <h3>앵커 문자</h3>
+    <p>
+        문자열의 앞과 뒤를 구분해주는 정규표현식 기호
+    </p>
+    <button id="btn-ank">앵커 문자 확인</button>
+    <div id="area-tag3" class="area"></div>
+    <h3>메타문자</h3>
+    <p>
+        [] : 대괄호 사이에 존재하는 문자들 중 하나 일치
+    </p>
+    <button id="btn-meta">메타문자 확인</button>
+    <div id="area-tag4" class="area"></div>
+    <h3>추가 메타 문자</h3>
+    <p>
+        \d : 숫자<br>
+        \w : 아무 단어 전부(숫자포함)<br>
+        \s : 공백문자(탭, 띄어쓰기, 줄바꿈)<br>
+        \D : 숫자가 아닌것<br>
+        \W : 단어가 아닌것<br>
+        \S : 공백문자가 아닌것<br>
+    </p>
+    <h3>수량문자</h3>
+    <p>
+        a+ : a가 적어도 1개 이상<br>
+        a* : a가 0개 또는 여러개<br>
+        a? : a가 0개 또는 1개<br>
+        a{5} : a가 5개<br>
+        a{2,5} : a가 2~5개<br>
+        a{2, } : a가 2개 이상<br>
+        a{ ,2} : a가 2개 이하<br>
+        <b>a는 메타 문자로 주로 사용</b>
+    </p>
+    <label for="personal-number">주민번호 입력: </label><input type="text" name="personal-number" id="personal-number">
+    <button id="btn-extra-btn">추가 메타문자 확인</button><br>
+    <label for="hangeul">한글 입력 : </label><input type="text" name="hangeul" id="hangeul">
+    <button id="btn-hangeul">한글 문자 확인</button>
+</body>
+
+</html>

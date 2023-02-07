@@ -83,12 +83,28 @@
             // #check-item 밑에 체크박스들이 모두 체크 해제 되는 것
             $("#allCheck").on("change", function () {
                 // prop()도 가능하다!
+                // 개인적으로 찾아보기
                 var checkboxes = $("#check-item").children();
                 if ($(this).is(":checked")) {
                     checkboxes.attr("checked", "checked");
                 } else {
                     checkboxes.removeAttr("checked");
                 }
+            })
+
+            // 이벤트 버블링 막기, 기본 이벤트 제거
+            $("#h1-click").on("click", function(){
+                alert("h1 클릭");
+            })
+            $("#span-click").on("click", function(e){
+                // 버블링 방지
+                e.stopPropagation();
+                alert("span 클릭");
+                // return false;
+            })
+            $("a").on("click", function(e){
+                e.preventDefault();
+                alert("a 클릭");
             })
         })
     </script>
@@ -134,6 +150,19 @@
         <input type="checkbox" name="" id=""> B
         <input type="checkbox" name="" id=""> C
     </div>
+
+    <h3>이벤트 버블링 막기 및 기본 이벤트 제거</h3>
+    <p>
+        stopPropagation() : 이벤트 전달 제거 <br>
+        preventDefault() : 기본 이벤트 제거
+    </p>
+    <h1 id="h1-click">
+        <span id="span-click">click</span>
+    </h1>
+    <h1>
+        <a href="http://www.iei.or.kr">kh정보교육원</a>
+    </h1>
+
     <br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 
