@@ -90,7 +90,7 @@
         var clickArr = [];
         function clickDiv(color) {
             var selected = document.querySelector("#" + color);
-            // console.log(selected);
+            console.log(selected);
             clickArr.push(selected);
             console.log(clickArr);
             selected.style.display = "none";
@@ -99,6 +99,7 @@
                 for (var i = 0; i < clickArr.length; i++) {
                     clickArr[i].style.display = "block";
                     str += clickArr[i].outerHTML;
+                    console.log(str);
                 }
                 document.querySelector("#div5").innerHTML = str;
                 while (clickArr.length != 0) {

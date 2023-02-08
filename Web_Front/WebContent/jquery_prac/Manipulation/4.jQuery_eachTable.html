@@ -28,7 +28,10 @@
                 trTags.each(function (index, item) {
                     if (index > 0) {
                         var tdTags = $(item).children();
+                        console.log(tdTags);
                         var input = tdTags.eq(0).children();
+                        console.log(tdTags.eq(0));
+                        console.log(input);
                         if(input.is(":checked")){
                             result += tdTags.eq(1).text() 
                                     + ", " + tdTags.eq(2).text() 
