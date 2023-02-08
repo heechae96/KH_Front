@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <style>
+        fieldset {
+            height: 400px;
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // $(function () {
+        //     $("form").on("submit", function () {
+        //         return false;
+        //     })
+        // });
+        // form의 submit이 return check()로 되어있기 때문에 위의 코드가 아래코드로 대체
+        // function check() { return false; }
+        function check() {
+            var msgTag = $("#message");
+            var userId = $("#user_id");
+            var userPw = $("#pw");
+            var userPwRe = $("#pw_re");
+            var userName = $("#user_name");
+            var userAddr = $("#addr");
+            var userEmail = $("#email");
+            var idRegExp = /^[a-z][a-z0-9]{3,11}$/;
+            var pwRegExp = /^[a-zA-Z0-9]{8,12}$/;
+            var nameRegExp = /[ㄱ-힣]+$/;
+            var addrRegExp = /[a-zA-Z]+$/;
+            var emailTegExp = /^[a-z0-9]{4,12}@/;
+
+            if (!idRegExp.test(userId.val())) {
+                userId.css("background-color", "red");
+                msgTag.html("아이디는 소문자로 시작하고 영어소문자, 숫자로 4~12글자로 입력하세요.");
+                return false;
+            } else if (!pwRegExp.test(userPw.val())) {
+                userPw.css("background-color", "red");
+                msgTag.html("비밀번호는 영어소문자, 대문자, 숫자만 입력 가능하며 8~12자리어야 합니다.");
+                return false;
+            } else if (userPw.val() !== userPwRe.val()) {  // '1' == 1 -> true /'1' === 1 -> false;
+                userPw.css("background-color", "red");
+                userPwRe.css("background-color", "red");
+                msgTag.html("비밀번호가 일치하지 않습니다.");
+                return false;
+            } else if (!nameRegExp.test(userName.val())) {
+                userName.css("background-color", "red");
+                msgTag.html("이름은 한글(최소1글자)만 입력하세요.");
+                return false;
+            } else if (addrRegExp.test(userAddr.val()) || userAddr.val() == "") {
+                userAddr.css("background-color", "red");
+                msgTag.html("주소에는 영어 사용이 불가합니다.");
+                return false;
+            } else if (!emailTegExp.test(userEmail.val())) {
+                userEmail.css("background-color", "red");
+                msgTag.html("이메일 아이디는 영어소문자, 숫자 4~12자리로 입력하세요.");
+                return false;
+            } else if ((/^010$/.test($("#tel1").val()))
+                && (/\d{3,4}/.test($("#tel2").val()))
+                && (/\d{4}/.test($("#tel3").val()))) {
+                $("#tel1").css("background-color", "red");
+                $("#tel2").css("background-color", "red");
+                $("#tel3").css("background-color", "red");
+                msgTag.html("폰번호는 010으로 시작하고 두번째 필드는 3~4자리 숫자, 세번째 필드는 4자리 숫자만 입력바랍니다.")
+                return false;
+            }
+            return true;
+        }
+        function clearWhite() {
+            $("input").css("background-color", "white");
+        }
+    </script>
+    문제<br>
+    회원가입시 각 필드마다 유효성 검사를 하여 처리 할 수 있도록 만들어라. <br>
+    1. ID는 영어소문자,숫자만 가능해야함(4~12자리,소문자로 시작해야함) <br>
+    2. PW는 영어소문자,대문자,숫자만 입력 가능해야 하고 (최소 8~12자리) <br>
+    3. PW와 PW_re는 같아야 함<br>
+    4. NAME은 무조건 한글만 가능해야 함(최소1글자 이상)<br>
+    5. 주소에는 영어 사용 불가(공백 불가)<br>
+    6. 우편번호는 무조건 숫자만 입력 가능해야 함<br>
+    7. 이메일은 @가 포함 되어야 함(@앞에가 영문자,숫자로 4~12글자 ) <br>
+    8. 전화번호는 첫번째 필드는 010만 입력 가능 해야 함 <br>
+    두번째 필드는 3자리 이상 입력 해야 함 <br>
+    세번째 필드는 무조건 4자리 입력 해야함 <br>
+    (모두 숫자만 가능 해야함) <br>
+
+    <center>
+
+        <fieldset>
+            <legend>회원가입</legend>
+            <pre>
+<span id="message" style="color:blue;"></span>
+            <form action="join" method="post">
+ID :        <input type="text" id="user_id" /><br>
+PW :        <input type="password" id="pw" /><br>
+PW_re :     <input type="password" id="pw_re" /><br>
+NAME :      <input type="text" id="user_name" /><br>
+ADDRESS :   <input type="text" id="addr" /><br>
+POST NUMBER:  <input type="text" size="5" id="post_1" /> - <input type="text" size="5" id="post_2" /> <br>
+E-MAIL :    <input type="text" id="email" /><br>
+PHONE :     <input type="text" id="tel1" size="2" maxlength="3" />-<input type="text" id="tel2" size="2" maxlength="4" />-<input type="text" id="tel3" size="2" maxlength="4" /><br>
+<input type="submit" value="회원가입" onclick="return check();"/>  <input type="reset" value="취소" />
+            </form>
+</pre>
+        </fieldset>
+    </center>
+
+</body>
+
+</html>
