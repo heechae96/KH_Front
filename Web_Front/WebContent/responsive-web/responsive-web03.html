@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부트스트랩 샘플 코드3</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        div {
+            border: 1px dashed black;
+            box-sizing: border-box;
+        }
+
+        .container {
+            margin-top: 10px;
+        }
+
+        .header div {
+            height: 100px;
+        }
+
+        .body div {
+            height: 200px;
+        }
+
+        .footer div {
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>그리드 시스템</h1>
+    <br><br>
+    <div class="containers">
+        <div class="row header">
+            <div class="col-12 col-sm-4 col-md-3">Logo</div>
+            <div class="col-12 col-sm-8 col-md-7">Search</div>
+            <div class="d-none d-md-block col-md-2">Reserved</div>
+        </div>
+        <div class="row body">
+            <div class="col-12 col-sm-12 col-md-4">Login</div>
+            <div class="col-12 col-sm-12 col-md-8">Main</div>
+        </div>
+        <div class="row footer">
+            <div class="col-12 col-sm-3 col-md-3">License</div>
+            <div class="col-12 col-sm-9 col-md-9">Compnay Info</div>
+        </div>
+    </div>
+</body>
+
+</html>
